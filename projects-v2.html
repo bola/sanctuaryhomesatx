@@ -155,8 +155,37 @@
 </head>
 <body>
 
-    <!-- HEADER PLACEHOLDER -->
-    <div id="header-placeholder"></div>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index-v2.html" class="logo">Sanctuary</a>
+            <nav class="nav">
+                <a href="index-v2.html">Home</a>
+                <a href="about-v2.html">About Us</a>
+                <a href="projects-v2.html" class="active">Featured Projects</a>
+                <a href="methodology.html">Our Methodology</a>
+                <a href="difference.html">Sanctuary Difference</a>
+                <a href="testimonials.html">Testimonials</a>
+                <a href="contact.html" class="btn-contact">Contact Us</a>
+            </nav>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE NAV -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index-v2.html">Home</a>
+        <a href="about-v2.html">About Us</a>
+        <a href="projects-v2.html">Featured Projects</a>
+        <a href="methodology.html">Our Methodology</a>
+        <a href="difference.html">Sanctuary Difference</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="contact.html" class="btn-contact">Contact Us</a>
+    </div>
 
     <!-- PAGE HERO -->
     <section class="section bg-light">
@@ -164,7 +193,7 @@
             <div class="section-header">
                 <div class="section-label">Portfolio</div>
                 <h1 class="section-title">Featured Projects</h1>
-                <p class="section-description">Explore our collection of 60+ luxury custom homes, remodels, and estates across Austin and the Texas Hill Country.</p>
+                <p class="section-description">60+ homes delivered across custom builds, spec homes, and remodels throughout Austin and the Texas Hill Country</p>
             </div>
         </div>
     </section>
@@ -362,11 +391,91 @@
         </div>
     </section>
 
-    <!-- FOOTER PLACEHOLDER -->
-    <div id="footer-placeholder"></div>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Sanctuary Custom Homes</h4>
+                    <p style="color: var(--gray); font-size: 15px; line-height: 1.7;">Luxury built on precision and quality. Serving Austin & the Texas Hill Country.</p>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <a href="tel:+15125551234">Phone: (512) 555-1234</a>
+                    <a href="mailto:info@sanctuaryhomesatx.com">info@sanctuaryhomesatx.com</a>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <a href="projects-v2.html">Portfolio</a>
+                    <a href="about-v2.html">About Us</a>
+                    <a href="methodology.html">Our Process</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sanctuary Custom Homes. All rights reserved. TX Builder License #123456</p>
+            </div>
+        </div>
+    </footer>
 
-    <!-- Component Loader -->
-    <script src="js/components.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+
+        if (mobileMenuToggle && mobileNav) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileNav.classList.toggle('open');
+            });
+
+            document.querySelectorAll('.mobile-nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileNav.classList.remove('open');
+                });
+            });
+        }
+
+        // Project Filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // Filter projects
+                projectCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+
+                    if (filter === 'all' || category === filter) {
+                        card.style.display = '';
+                        card.style.animation = 'fadeIn 0.5s ease-out';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Check for URL filter parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlFilter = urlParams.get('filter');
+        if (urlFilter) {
+            const targetButton = document.querySelector(`.filter-btn[data-filter="${urlFilter}"]`);
+            if (targetButton) {
+                targetButton.click();
+            }
+        }
+    </script>
 
 </body>
 </html>

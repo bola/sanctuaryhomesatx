@@ -8,343 +8,259 @@
     <title>Our Building Methodology | Sanctuary Custom Homes</title>
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/clean-design.css">
+
+    <style>
+        .phase-card {
+            background: var(--white);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: var(--space-lg);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+        }
+
+        .phase-header {
+            background: var(--copper);
+            color: var(--white);
+            padding: var(--space-lg);
+        }
+
+        .phase-number {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .phase-title {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .phase-body {
+            padding: var(--space-lg);
+        }
+
+        .phase-list {
+            list-style: none;
+            padding: 0;
+            margin: var(--space-md) 0;
+        }
+
+        .phase-list li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .phase-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--copper);
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header class="header" id="header">
-        <div class="container header-container">
-            <a href="index.html" class="logo">Sanctuary</a>
-
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="about.html" class="nav-link">About Us</a></li>
-                    <li><a href="projects.html" class="nav-link">Featured Projects</a></li>
-                    <li><a href="methodology.html" class="nav-link active">Our Methodology</a></li>
-                    <li><a href="difference.html" class="nav-link">Sanctuary Difference</a></li>
-                    <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
-                    <li><a href="contact.html" class="btn btn-primary btn-sm">Contact Us</a></li>
-                </ul>
-            </nav>
-
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </header>
-
-    <!-- Mobile Navigation -->
-    <div class="mobile-nav" id="mobileNav">
-        <ul class="mobile-nav-list">
-            <li><a href="index.html" class="mobile-nav-link">Home</a></li>
-            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
-            <li><a href="projects.html" class="mobile-nav-link">Featured Projects</a></li>
-            <li><a href="methodology.html" class="mobile-nav-link">Our Methodology</a></li>
-            <li><a href="difference.html" class="mobile-nav-link">Sanctuary Difference</a></li>
-            <li><a href="testimonials.html" class="mobile-nav-link">Testimonials</a></li>
-            <li><a href="contact.html" class="mobile-nav-link">Contact Us</a></li>
-        </ul>
-    </div>
-
-    <!-- PAGE HERO -->
-    <section class="section-lg bg-sand" style="margin-top: 0;">
-        <div class="container">
-            <div class="section-header">
-                <p class="section-subtitle">Our Process</p>
-                <h1 class="section-title">A Structured Approach to Custom Home Building</h1>
-                <p class="section-description lead">From preconstruction planning to final walkthrough and beyond, every step is designed to deliver clarity, quality, and peace of mind.</p>
-            </div>
-        </div>
+    <!-- HEADER PLACEHOLDER -->
+    <div id="header-placeholder"></div>
     </section>
 
-    <!-- PROCESS OVERVIEW -->
-    <section class="section-lg bg-white">
-        <div class="container max-w-2xl">
-            <h2 class="h2 mb-md text-center">Building with Precision and Transparency</h2>
-            <p class="text-secondary leading-relaxed mb-md">At Sanctuary Custom Homes, we've refined our methodology over decades of experience. Our approach combines traditional craftsmanship with modern project management tools, ensuring every project stays on schedule, within budget, and exceeds expectations.</p>
-            <p class="text-secondary leading-relaxed">Whether you're building a custom home from the ground up or undertaking a complex remodel, our structured process provides the roadmap for success.</p>
+    <!-- INTRO -->
+    <section class="section bg-white">
+        <div class="container container-narrow text-center">
+            <p style="font-size: 18px; line-height: 1.8; color: var(--dark-gray); margin-bottom: var(--space-md);">At Sanctuary Custom Homes, we've refined our methodology over decades of experience. Our approach combines traditional craftsmanship with modern project management tools, ensuring every project stays on schedule, within budget, and exceeds expectations.</p>
+            <p style="font-size: 17px; line-height: 1.7; color: var(--gray);">Whether you're building a custom home from the ground up or undertaking a complex remodel, our structured process provides the roadmap for success.</p>
         </div>
     </section>
 
     <!-- THE PHASES -->
-    <section class="section-lg bg-sand">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Our Five-Phase Process</h2>
+    <section class="section-lg bg-light">
+        <div class="container" style="max-width: 900px;">
+            <h2 class="text-center mb-xl">Our Five-Phase Process</h2>
+
+            <!-- Phase 1 -->
+            <div class="phase-card">
+                <div class="phase-header">
+                    <div class="phase-number">PHASE 1</div>
+                    <h3 class="phase-title">Discovery & Preconstruction</h3>
+                    <p style="margin: 0; opacity: 0.9;">Foundation for Success</p>
+                </div>
+                <div class="phase-body">
+                    <p class="mb-md">Before breaking ground, we invest time understanding your vision, validating budgets, and establishing clear timelines.</p>
+
+                    <h4 style="font-size: 1.1rem; margin-bottom: var(--space-sm); color: var(--copper);">What We Do:</h4>
+                    <ul class="phase-list">
+                        <li>Initial consultation and site analysis</li>
+                        <li>Detailed cost estimation and budget validation</li>
+                        <li>Review architectural plans for constructability</li>
+                        <li>Establish project schedule with key milestones</li>
+                        <li>Secure permits and approvals</li>
+                        <li>Finalize contracts and project agreements</li>
+                    </ul>
+
+                    <div style="background: var(--off-white); padding: var(--space-md); border-radius: 4px; margin-top: var(--space-md);">
+                        <p style="margin: 0; font-size: 15px; line-height: 1.7;"><strong>Your Experience:</strong> Clear communication from day one. You'll receive a comprehensive project plan, transparent budget breakdown, and a dedicated point of contact.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 gap-xl max-w-2xl mx-auto">
+            <!-- Phase 2 -->
+            <div class="phase-card">
+                <div class="phase-header">
+                    <div class="phase-number">PHASE 2</div>
+                    <h3 class="phase-title">Site Preparation & Foundation</h3>
+                    <p style="margin: 0; opacity: 0.9;">Building the Base</p>
+                </div>
+                <div class="phase-body">
+                    <p class="mb-md">Proper site preparation and a solid foundation are critical to every project's long-term success.</p>
 
-                <!-- Phase 1: Discovery & Preconstruction -->
-                <div class="card">
-                    <div class="bg-copper p-md">
-                        <h3 class="h4 text-white">Phase 1: Discovery & Preconstruction</h3>
-                        <p class="text-white small">Foundation for Success</p>
-                    </div>
-                    <div class="card-body">
-                        <p class="mb-sm text-secondary">Before breaking ground, we invest time understanding your vision, validating budgets, and establishing clear timelines.</p>
+                    <h4 style="font-size: 1.1rem; margin-bottom: var(--space-sm); color: var(--copper);">What We Do:</h4>
+                    <ul class="phase-list">
+                        <li>Site clearing, grading, and preparation</li>
+                        <li>Utility connections and underground work</li>
+                        <li>Foundation excavation and formwork</li>
+                        <li>Concrete pour and curing with quality control</li>
+                        <li>Foundation waterproofing and drainage</li>
+                        <li>Initial inspections and approvals</li>
+                    </ul>
 
-                        <h4 class="h6 mb-xs text-copper">What We Do:</h4>
-                        <ul class="text-secondary small mb-md">
-                            <li>Initial consultation and site analysis</li>
-                            <li>Detailed cost estimation and budget validation</li>
-                            <li>Review architectural plans for constructability</li>
-                            <li>Establish project schedule with key milestones</li>
-                            <li>Secure permits and approvals</li>
-                            <li>Finalize contracts and project agreements</li>
-                        </ul>
-
-                        <h4 class="h6 mb-xs text-copper">Your Experience:</h4>
-                        <p class="text-secondary small">Clear communication from day one. You'll receive a comprehensive project plan, transparent budget breakdown, and a dedicated point of contact.</p>
+                    <div style="background: var(--off-white); padding: var(--space-md); border-radius: 4px; margin-top: var(--space-md);">
+                        <p style="margin: 0; font-size: 15px; line-height: 1.7;"><strong>Your Experience:</strong> Regular photo updates and site visits. You'll see the transformation from raw land to the foundation of your future home.</p>
                     </div>
                 </div>
-
-                <!-- Phase 2: Site Preparation & Foundation -->
-                <div class="card">
-                    <div class="bg-copper p-md">
-                        <h3 class="h4 text-white">Phase 2: Site Preparation & Foundation</h3>
-                        <p class="text-white small">Building the Base</p>
-                    </div>
-                    <div class="card-body">
-                        <p class="mb-sm text-secondary">Proper site preparation and a solid foundation are critical to every project's long-term success.</p>
-
-                        <h4 class="h6 mb-xs text-copper">What We Do:</h4>
-                        <ul class="text-secondary small mb-md">
-                            <li>Site clearing, grading, and preparation</li>
-                            <li>Utility connections and underground work</li>
-                            <li>Foundation excavation and formwork</li>
-                            <li>Concrete pour and curing (with quality control)</li>
-                            <li>Foundation waterproofing and drainage</li>
-                            <li>Initial inspections and approvals</li>
-                        </ul>
-
-                        <h4 class="h6 mb-xs text-copper">Your Experience:</h4>
-                        <p class="text-secondary small">Regular photo updates and site visits. You'll see the transformation from raw land to the foundation of your future home.</p>
-                    </div>
-                </div>
-
-                <!-- Phase 3: Framing & Shell -->
-                <div class="card">
-                    <div class="bg-copper p-md">
-                        <h3 class="h4 text-white">Phase 3: Framing & Shell</h3>
-                        <p class="text-white small">Structure Takes Shape</p>
-                    </div>
-                    <div class="card-body">
-                        <p class="mb-sm text-secondary">This is when your home begins to take physical form. Our experienced framing crews bring precision to every wall, floor, and roof system.</p>
-
-                        <h4 class="h6 mb-xs text-copper">What We Do:</h4>
-                        <ul class="text-secondary small mb-md">
-                            <li>Floor framing and subflooring</li>
-                            <li>Wall framing and structural bracing</li>
-                            <li>Roof framing and sheathing</li>
-                            <li>Window and door installation</li>
-                            <li>Exterior sheathing and weather barrier</li>
-                            <li>Rough-in for mechanical, electrical, and plumbing</li>
-                        </ul>
-
-                        <h4 class="h6 mb-xs text-copper">Your Experience:</h4>
-                        <p class="text-secondary small">Watch your design come to life in three dimensions. Weekly progress meetings keep you informed as your home's skeleton takes shape.</p>
-                    </div>
-                </div>
-
-                <!-- Phase 4: Systems & Finishes -->
-                <div class="card">
-                    <div class="bg-copper p-md">
-                        <h3 class="h4 text-white">Phase 4: Systems & Finishes</h3>
-                        <p class="text-white small">Bringing It All Together</p>
-                    </div>
-                    <div class="card-body">
-                        <p class="mb-sm text-secondary">With the structure complete, we focus on the systems and finishes that make your house a home.</p>
-
-                        <h4 class="h6 mb-xs text-copper">What We Do:</h4>
-                        <ul class="text-secondary small mb-md">
-                            <li>HVAC, electrical, and plumbing installation</li>
-                            <li>Insulation and energy efficiency measures</li>
-                            <li>Drywall installation and finishing</li>
-                            <li>Interior and exterior paint</li>
-                            <li>Flooring, tile, and stone installation</li>
-                            <li>Cabinetry, countertops, and millwork</li>
-                            <li>Fixture and hardware installation</li>
-                        </ul>
-
-                        <h4 class="h6 mb-xs text-copper">Your Experience:</h4>
-                        <p class="text-secondary small">This is where your selections come to life. Regular walkthroughs ensure every detail matches your vision.</p>
-                    </div>
-                </div>
-
-                <!-- Phase 5: Final Details & Handover -->
-                <div class="card">
-                    <div class="bg-copper p-md">
-                        <h3 class="h4 text-white">Phase 5: Final Details & Handover</h3>
-                        <p class="text-white small">Perfecting Every Detail</p>
-                    </div>
-                    <div class="card-body">
-                        <p class="mb-sm text-secondary">The final phase is about perfection. We meticulously complete every detail and prepare you for life in your new home.</p>
-
-                        <h4 class="h6 mb-xs text-copper">What We Do:</h4>
-                        <ul class="text-secondary small mb-md">
-                            <li>Final inspections and code compliance verification</li>
-                            <li>Comprehensive punch list completion</li>
-                            <li>Detailed cleaning and final preparation</li>
-                            <li>Systems testing and demonstration</li>
-                            <li>Final walkthrough with you</li>
-                            <li>Digital handover via Home Cloud™</li>
-                            <li>5-year concierge service activation</li>
-                        </ul>
-
-                        <h4 class="h6 mb-xs text-copper">Your Experience:</h4>
-                        <p class="text-secondary small">A seamless transition to homeownership. You'll receive complete documentation, warranty information, and ongoing support through our concierge service.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- TECHNOLOGY & TOOLS -->
-    <section class="section-lg bg-white">
-        <div class="container">
-            <div class="section-header">
-                <p class="section-subtitle">Technology & Tools</p>
-                <h2 class="section-title">Modern Tools for Traditional Craftsmanship</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-lg">
-                <div class="text-center">
-                    <div class="mb-sm">
-                        <span class="text-copper" style="font-size: 2.5rem;">📊</span>
-                    </div>
-                    <h3 class="h5 mb-xs">Project Management</h3>
-                    <p class="small text-secondary">Real-time dashboards tracking schedule, budget, and progress</p>
+            <!-- Phase 3 -->
+            <div class="phase-card">
+                <div class="phase-header">
+                    <div class="phase-number">PHASE 3</div>
+                    <h3 class="phase-title">Framing & Shell</h3>
+                    <p style="margin: 0; opacity: 0.9;">Structure Takes Shape</p>
                 </div>
+                <div class="phase-body">
+                    <p class="mb-md">This is when your home begins to take physical form. Our experienced framing crews bring precision to every wall, floor, and roof system.</p>
 
-                <div class="text-center">
-                    <div class="mb-sm">
-                        <span class="text-copper" style="font-size: 2.5rem;">📱</span>
+                    <h4 style="font-size: 1.1rem; margin-bottom: var(--space-sm); color: var(--copper);">What We Do:</h4>
+                    <ul class="phase-list">
+                        <li>Floor framing and subflooring</li>
+                        <li>Wall framing and structural bracing</li>
+                        <li>Roof framing and sheathing</li>
+                        <li>Window and door installation</li>
+                        <li>Exterior sheathing and weather barrier</li>
+                        <li>Rough-in for mechanical, electrical, and plumbing</li>
+                    </ul>
+
+                    <div style="background: var(--off-white); padding: var(--space-md); border-radius: 4px; margin-top: var(--space-md);">
+                        <p style="margin: 0; font-size: 15px; line-height: 1.7;"><strong>Your Experience:</strong> Watch your design come to life in three dimensions. Weekly progress meetings keep you informed as your home's skeleton takes shape.</p>
                     </div>
-                    <h3 class="h5 mb-xs">Client Portal</h3>
-                    <p class="small text-secondary">Access project documents, photos, and updates 24/7</p>
                 </div>
+            </div>
 
-                <div class="text-center">
-                    <div class="mb-sm">
-                        <span class="text-copper" style="font-size: 2.5rem;">☁️</span>
-                    </div>
-                    <h3 class="h5 mb-xs">Home Cloud™</h3>
-                    <p class="small text-secondary">Complete digital handover with all project data and manuals</p>
+            <!-- Phase 4 -->
+            <div class="phase-card">
+                <div class="phase-header">
+                    <div class="phase-number">PHASE 4</div>
+                    <h3 class="phase-title">Systems & Finishes</h3>
+                    <p style="margin: 0; opacity: 0.9;">Bringing It All Together</p>
                 </div>
+                <div class="phase-body">
+                    <p class="mb-md">With the structure complete, we focus on the systems and finishes that make your house a home.</p>
 
-                <div class="text-center">
-                    <div class="mb-sm">
-                        <span class="text-copper" style="font-size: 2.5rem;">🔧</span>
+                    <h4 style="font-size: 1.1rem; margin-bottom: var(--space-sm); color: var(--copper);">What We Do:</h4>
+                    <ul class="phase-list">
+                        <li>HVAC, electrical, and plumbing installation</li>
+                        <li>Insulation and energy efficiency measures</li>
+                        <li>Drywall installation and finishing</li>
+                        <li>Interior and exterior paint</li>
+                        <li>Flooring, tile, and stone installation</li>
+                        <li>Cabinetry, countertops, and millwork</li>
+                        <li>Fixture and hardware installation</li>
+                    </ul>
+
+                    <div style="background: var(--off-white); padding: var(--space-md); border-radius: 4px; margin-top: var(--space-md);">
+                        <p style="margin: 0; font-size: 15px; line-height: 1.7;"><strong>Your Experience:</strong> This is where your selections come to life. Regular walkthroughs ensure every detail matches your vision.</p>
                     </div>
-                    <h3 class="h5 mb-xs">Quality Control</h3>
-                    <p class="small text-secondary">Digital checklists and inspections at every phase</p>
+                </div>
+            </div>
+
+            <!-- Phase 5 -->
+            <div class="phase-card">
+                <div class="phase-header">
+                    <div class="phase-number">PHASE 5</div>
+                    <h3 class="phase-title">Final Details & Handover</h3>
+                    <p style="margin: 0; opacity: 0.9;">Perfecting Every Detail</p>
+                </div>
+                <div class="phase-body">
+                    <p class="mb-md">The final phase is about perfection. We meticulously complete every detail and prepare you for life in your new home.</p>
+
+                    <h4 style="font-size: 1.1rem; margin-bottom: var(--space-sm); color: var(--copper);">What We Do:</h4>
+                    <ul class="phase-list">
+                        <li>Final inspections and code compliance verification</li>
+                        <li>Comprehensive punch list completion</li>
+                        <li>Detailed cleaning and final preparation</li>
+                        <li>Systems testing and demonstration</li>
+                        <li>Final walkthrough with you</li>
+                        <li>Digital handover via Home Cloud™</li>
+                        <li>5-year concierge service activation</li>
+                    </ul>
+
+                    <div style="background: var(--off-white); padding: var(--space-md); border-radius: 4px; margin-top: var(--space-md);">
+                        <p style="margin: 0; font-size: 15px; line-height: 1.7;"><strong>Your Experience:</strong> A seamless transition to homeownership. You'll receive complete documentation, warranty information, and ongoing support through our concierge service.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WHAT SETS US APART -->
-    <section class="section-lg bg-charcoal text-inverse">
-        <div class="container max-w-2xl">
-            <h2 class="h2 mb-md text-center text-inverse">What Sets Our Process Apart</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
-                <div>
-                    <h3 class="h5 mb-xs text-copper">Proactive Communication</h3>
-                    <p class="small text-inverse">Weekly updates, not just when problems arise</p>
+    <!-- DIFFERENTIATORS -->
+    <section class="section bg-dark">
+        <div class="container container-narrow">
+            <h2 class="text-center mb-xl" style="color: var(--white);">What Sets Our Process Apart</h2>
+            <div class="grid grid-2">
+                <div class="mb-lg">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--copper);">Proactive Communication</h3>
+                    <p style="color: rgba(255,255,255,0.85); margin: 0;">Weekly updates, not just when problems arise</p>
                 </div>
-
-                <div>
-                    <h3 class="h5 mb-xs text-copper">Fixed Milestones</h3>
-                    <p class="small text-inverse">Clear deadlines with accountability at every phase</p>
+                <div class="mb-lg">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--copper);">Fixed Milestones</h3>
+                    <p style="color: rgba(255,255,255,0.85); margin: 0;">Clear deadlines with accountability at every phase</p>
                 </div>
-
-                <div>
-                    <h3 class="h5 mb-xs text-copper">Transparent Budgeting</h3>
-                    <p class="small text-inverse">No surprises—detailed line-item tracking</p>
+                <div class="mb-lg">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--copper);">Transparent Budgeting</h3>
+                    <p style="color: rgba(255,255,255,0.85); margin: 0;">No surprises—detailed line-item tracking</p>
                 </div>
-
-                <div>
-                    <h3 class="h5 mb-xs text-copper">Vendor Management</h3>
-                    <p class="small text-inverse">Vetted subcontractors held to our quality standards</p>
-                </div>
-
-                <div>
-                    <h3 class="h5 mb-xs text-copper">Quality Checkpoints</h3>
-                    <p class="small text-inverse">Inspections before moving to the next phase</p>
-                </div>
-
-                <div>
-                    <h3 class="h5 mb-xs text-copper">Post-Completion Care</h3>
-                    <p class="small text-inverse">5-year concierge service included with every home</p>
+                <div class="mb-lg">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--copper);">Quality Checkpoints</h3>
+                    <p style="color: rgba(255,255,255,0.85); margin: 0;">Inspections before moving to the next phase</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA -->
-    <section class="section-lg bg-sand">
-        <div class="container text-center">
-            <h2 class="h2 mb-sm">Ready to Experience the Sanctuary Difference?</h2>
-            <p class="lead mb-lg mx-auto max-w-2xl">Let's discuss how our structured methodology can bring your custom home vision to life with precision and transparency.</p>
-            <div class="flex gap-md justify-center flex-wrap">
+    <section class="section-lg bg-white text-center">
+        <div class="container container-narrow">
+            <h2 class="mb-md">Ready to Experience Our Process?</h2>
+            <p class="mb-xl" style="font-size: 18px; line-height: 1.7; color: var(--gray);">Let's discuss how our structured methodology can bring your custom home vision to life with precision and transparency.</p>
+            <div style="display: flex; gap: var(--space-sm); justify-content: center; flex-wrap: wrap;">
                 <a href="contact.html" class="btn btn-primary btn-lg">Schedule a Consultation</a>
                 <a href="projects.html" class="btn btn-secondary btn-lg">View Our Work</a>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Sanctuary Custom Homes</h3>
-                    <p class="footer-link">Luxury Built on Precision and Quality</p>
-                    <p class="footer-link">Austin & Texas Hill Country</p>
-                    <p class="footer-link mt-sm">
-                        <a href="tel:+15125551234">Phone: (512) 555-1234</a><br>
-                        <a href="mailto:info@sanctuaryhomesatx.com">info@sanctuaryhomesatx.com</a>
-                    </p>
-                </div>
+    <!-- FOOTER PLACEHOLDER -->
+    <div id="footer-placeholder"></div>
 
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <a href="about.html" class="footer-link">About Us</a>
-                    <a href="projects.html" class="footer-link">Featured Projects</a>
-                    <a href="methodology.html" class="footer-link">Our Methodology</a>
-                    <a href="difference.html" class="footer-link">Sanctuary Difference</a>
-                    <a href="testimonials.html" class="footer-link">Testimonials</a>
-                    <a href="contact.html" class="footer-link">Contact Us</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Legal & Resources</h3>
-                    <a href="privacy.html" class="footer-link">Privacy Policy</a>
-                    <a href="terms.html" class="footer-link">Terms of Service</a>
-                    <p class="footer-link mt-md">TX Builder License #123456</p>
-                    <p class="footer-link">Bonded & Insured</p>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; <span class="current-year">2024</span> Sanctuary Custom Homes. All rights reserved.</p>
-                <div class="footer-social">
-                    <a href="#" aria-label="Facebook">Facebook</a>
-                    <a href="#" aria-label="Instagram">Instagram</a>
-                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
+    <!-- Component Loader -->
+    <script src="js/components.js"></script>
 
 </body>
 </html>

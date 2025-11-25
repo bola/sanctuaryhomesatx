@@ -3,158 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Read what Sanctuary Custom Homes clients have to say about their custom home building experience. 90% referral rate speaks to our commitment.">
+    <meta name="description" content="Read what Sanctuary Custom Homes clients have to say about their custom home building experience. 90% referral rate.">
 
     <title>Client Testimonials | Sanctuary Custom Homes</title>
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/clean-design.css">
+
+    <style>
+        .testimonial-card {
+            background: var(--white);
+            padding: var(--space-xl);
+            border-radius: 4px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--copper);
+        }
+
+        .stars {
+            color: var(--copper);
+            font-size: 1.5rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .testimonial-text {
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--dark-gray);
+            margin-bottom: var(--space-md);
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--copper);
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-project {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: var(--space-xl);
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 6vw, 5rem);
+            color: var(--copper);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-description {
+            font-size: 15px;
+            color: var(--gray);
+        }
+    </style>
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header class="header" id="header">
-        <div class="container header-container">
-            <a href="index.html" class="logo">Sanctuary</a>
-
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="about.html" class="nav-link">About Us</a></li>
-                    <li><a href="projects.html" class="nav-link">Featured Projects</a></li>
-                    <li><a href="methodology.html" class="nav-link">Our Methodology</a></li>
-                    <li><a href="difference.html" class="nav-link">Sanctuary Difference</a></li>
-                    <li><a href="testimonials.html" class="nav-link active">Testimonials</a></li>
-                    <li><a href="contact.html" class="btn btn-primary btn-sm">Contact Us</a></li>
-                </ul>
-            </nav>
-
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </header>
-
-    <!-- Mobile Navigation -->
-    <div class="mobile-nav" id="mobileNav">
-        <ul class="mobile-nav-list">
-            <li><a href="index.html" class="mobile-nav-link">Home</a></li>
-            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
-            <li><a href="projects.html" class="mobile-nav-link">Featured Projects</a></li>
-            <li><a href="methodology.html" class="mobile-nav-link">Our Methodology</a></li>
-            <li><a href="difference.html" class="mobile-nav-link">Sanctuary Difference</a></li>
-            <li><a href="testimonials.html" class="mobile-nav-link">Testimonials</a></li>
-            <li><a href="contact.html" class="mobile-nav-link">Contact Us</a></li>
-        </ul>
-    </div>
-
-    <!-- PAGE HERO -->
-    <section class="section-lg bg-sand" style="margin-top: 0;">
-        <div class="container">
-            <div class="section-header">
-                <p class="section-subtitle">Client Stories</p>
-                <h1 class="section-title">What Our Clients Say</h1>
-                <p class="section-description lead">90% of our projects come from referrals—our clients become our advocates</p>
-            </div>
-        </div>
+    <!-- HEADER PLACEHOLDER -->
+    <div id="header-placeholder"></div>
     </section>
 
     <!-- INTRO -->
     <section class="section bg-white">
-        <div class="container max-w-2xl text-center">
-            <p class="lead text-secondary mb-md">We measure success not by the homes we build, but by the relationships we cultivate. Here's what our clients have to say about their experience with Sanctuary Custom Homes.</p>
+        <div class="container container-narrow text-center">
+            <p style="font-size: 18px; line-height: 1.8; color: var(--dark-gray);">We measure success not by the homes we build, but by the relationships we cultivate. Here's what our clients have to say about their experience with Sanctuary Custom Homes.</p>
         </div>
     </section>
 
     <!-- TESTIMONIALS GRID -->
-    <section class="section-lg bg-sand">
+    <section class="section-lg bg-light">
         <div class="container">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+            <div class="grid grid-2" style="max-width: 1100px; margin: 0 auto;">
 
                 <!-- Testimonial 1 -->
-                <div class="card">
-                    <div class="card-body">
-                        <div class="mb-md">
-                            <span class="text-copper" style="font-size: 2rem;">★★★★★</span>
-                        </div>
-                        <blockquote>
-                            <p class="text-secondary mb-md">"The attention to detail and transparent communication throughout our build was exceptional. Nick and Robert made what could have been a stressful process remarkably smooth. From the initial budget to the final walkthrough, there were no surprises—only pleasant ones."</p>
-                            <cite class="text-copper font-semibold">— Austin Homeowner</cite><br>
-                            <cite class="small text-secondary">Bouldin Avenue Custom Home</cite>
-                        </blockquote>
-                    </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"The attention to detail and transparent communication throughout our build was exceptional. Nick and Robert made what could have been a stressful process remarkably smooth. From the initial budget to the final walkthrough, there were no surprises—only pleasant ones."</p>
+                    <p class="testimonial-author">— Austin Homeowner</p>
+                    <p class="testimonial-project">Bouldin Avenue Custom Home</p>
                 </div>
 
                 <!-- Testimonial 2 -->
-                <div class="card">
-                    <div class="card-body">
-                        <div class="mb-md">
-                            <span class="text-copper" style="font-size: 2rem;">★★★★★</span>
-                        </div>
-                        <blockquote>
-                            <p class="text-secondary mb-md">"From initial consultation through final walkthrough, Sanctuary delivered on every promise. The Home Cloud system is a game-changer for managing our home. Two years later, we still use it regularly for everything from paint colors to appliance manuals."</p>
-                            <cite class="text-copper font-semibold">— Hill Country Client</cite><br>
-                            <cite class="small text-secondary">Superview Drive Estate</cite>
-                        </blockquote>
-                    </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"From initial consultation through final walkthrough, Sanctuary delivered on every promise. The Home Cloud system is a game-changer for managing our home. Two years later, we still use it regularly for everything from paint colors to appliance manuals."</p>
+                    <p class="testimonial-author">— Hill Country Client</p>
+                    <p class="testimonial-project">Superview Drive Estate</p>
                 </div>
 
                 <!-- Testimonial 3 -->
-                <div class="card">
-                    <div class="card-body">
-                        <div class="mb-md">
-                            <span class="text-copper" style="font-size: 2rem;">★★★★★</span>
-                        </div>
-                        <blockquote>
-                            <p class="text-secondary mb-md">"We interviewed five builders before choosing Sanctuary. What set them apart was their structured process and genuine commitment to client service. They weren't just trying to win the bid—they were invested in making sure our project was a success. That showed throughout the entire build."</p>
-                            <cite class="text-copper font-semibold">— Austin Family</cite><br>
-                            <cite class="small text-secondary">Sylvan Drive Custom Build</cite>
-                        </blockquote>
-                    </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"We interviewed five builders before choosing Sanctuary. What set them apart was their structured process and genuine commitment to client service. They weren't just trying to win the bid—they were invested in making sure our project was a success. That showed throughout the entire build."</p>
+                    <p class="testimonial-author">— Austin Family</p>
+                    <p class="testimonial-project">Sylvan Drive Custom Build</p>
                 </div>
 
                 <!-- Testimonial 4 -->
-                <div class="card">
-                    <div class="card-body">
-                        <div class="mb-md">
-                            <span class="text-copper" style="font-size: 2rem;">★★★★★</span>
-                        </div>
-                        <blockquote>
-                            <p class="text-secondary mb-md">"The 5-year concierge service isn't just marketing—it's real. We've used it multiple times for minor warranty issues, and every time, they handle everything. We make one call, and Sanctuary coordinates with the vendors. It's like having a building expert on retainer."</p>
-                            <cite class="text-copper font-semibold">— Westlake Homeowners</cite><br>
-                            <cite class="small text-secondary">Custom Remodel Client</cite>
-                        </blockquote>
-                    </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"The 5-year concierge service isn't just marketing—it's real. We've used it multiple times for minor warranty issues, and every time, they handle everything. We make one call, and Sanctuary coordinates with the vendors. It's like having a building expert on retainer."</p>
+                    <p class="testimonial-author">— Westlake Homeowners</p>
+                    <p class="testimonial-project">Custom Remodel Client</p>
                 </div>
 
                 <!-- Testimonial 5 -->
-                <div class="card">
-                    <div class="card-body">
-                        <div class="mb-md">
-                            <span class="text-copper" style="font-size: 2rem;">★★★★★</span>
-                        </div>
-                        <blockquote>
-                            <p class="text-secondary mb-md">"Nick's field experience combined with Robert's project management expertise is a powerful combination. We never felt like we were getting lip service—these guys know construction inside and out, and they run their projects like a well-oiled machine."</p>
-                            <cite class="text-copper font-semibold">— Developer Partner</cite><br>
-                            <cite class="small text-secondary">Multiple Projects, Austin & Hill Country</cite>
-                        </blockquote>
-                    </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Nick's field experience combined with Robert's project management expertise is a powerful combination. We never felt like we were getting lip service—these guys know construction inside and out, and they run their projects like a well-oiled machine."</p>
+                    <p class="testimonial-author">— Developer Partner</p>
+                    <p class="testimonial-project">Multiple Projects, Austin & Hill Country</p>
                 </div>
 
                 <!-- Testimonial 6 -->
-                <div class="card">
-                    <div class="card-body">
-                        <div class="mb-md">
-                            <span class="text-copper" style="font-size: 2rem;">★★★★★</span>
-                        </div>
-                        <blockquote>
-                            <p class="text-secondary mb-md">"We built our dream home in the Hill Country, and Sanctuary made the 90-minute distance feel like nothing. Their weekly updates, photo documentation, and responsive communication kept us informed every step of the way. When we had questions, we got answers—fast."</p>
-                            <cite class="text-copper font-semibold">— Out-of-State Clients</cite><br>
-                            <cite class="small text-secondary">Rainbow Ranch Estate</cite>
-                        </blockquote>
-                    </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"We built our dream home in the Hill Country, and Sanctuary made the 90-minute distance feel like nothing. Their weekly updates, photo documentation, and responsive communication kept us informed every step of the way. When we had questions, we got answers—fast."</p>
+                    <p class="testimonial-author">— Out-of-State Clients</p>
+                    <p class="testimonial-project">Rainbow Ranch Estate</p>
                 </div>
 
             </div>
@@ -162,184 +141,75 @@
     </section>
 
     <!-- STATS -->
-    <section class="section-lg bg-white">
+    <section class="section bg-white">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">The Numbers Tell the Story</h2>
-            </div>
+            <h2 class="text-center mb-xl">The Numbers Tell the Story</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-lg text-center">
-                <div>
-                    <h3 class="h2 text-copper mb-xs">90%</h3>
-                    <p class="h5 mb-xs">Referral Rate</p>
-                    <p class="small text-secondary">Most of our business comes from past clients</p>
+            <div class="grid grid-4">
+                <div class="stat-box">
+                    <div class="stat-number">90%</div>
+                    <div class="stat-label">Referral Rate</div>
+                    <p class="stat-description">Most of our business comes from past clients</p>
                 </div>
 
-                <div>
-                    <h3 class="h2 text-copper mb-xs">60+</h3>
-                    <p class="h5 mb-xs">Homes Delivered</p>
-                    <p class="small text-secondary">Custom builds, spec homes, and remodels</p>
+                <div class="stat-box">
+                    <div class="stat-number">60+</div>
+                    <div class="stat-label">Homes Delivered</div>
+                    <p class="stat-description">Custom builds, spec homes, and remodels</p>
                 </div>
 
-                <div>
-                    <h3 class="h2 text-copper mb-xs">100%</h3>
-                    <p class="h5 mb-xs">Project Completion</p>
-                    <p class="small text-secondary">Every project finished on time and on budget</p>
+                <div class="stat-box">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Project Completion</div>
+                    <p class="stat-description">Every project finished on time</p>
                 </div>
 
-                <div>
-                    <h3 class="h2 text-copper mb-xs">5+</h3>
-                    <p class="h5 mb-xs">Years Support</p>
-                    <p class="small text-secondary">Post-completion concierge service included</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHAT CLIENTS VALUE -->
-    <section class="section-lg bg-charcoal text-inverse">
-        <div class="container">
-            <h2 class="h2 mb-lg text-center text-inverse">What Clients Value Most</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md max-w-2xl mx-auto">
-                <div class="text-center">
-                    <div class="mb-sm">
-                        <span class="text-copper" style="font-size: 2rem;">✓</span>
-                    </div>
-                    <h3 class="h6 mb-xs text-inverse">Transparent Communication</h3>
-                    <p class="tiny text-inverse">No surprises, just honest updates</p>
-                </div>
-
-                <div class="text-center">
-                    <div class="mb-sm">
-                        <span class="text-copper" style="font-size: 2rem;">◆</span>
-                    </div>
-                    <h3 class="h6 mb-xs text-inverse">Budget Accuracy</h3>
-                    <p class="tiny text-inverse">Detailed estimates that hold true</p>
-                </div>
-
-                <div class="text-center">
-                    <div class="mb-sm">
-                        <span class="text-copper" style="font-size: 2rem;">★</span>
-                    </div>
-                    <h3 class="h6 mb-xs text-inverse">On-Time Delivery</h3>
-                    <p class="tiny text-inverse">Respecting timelines and commitments</p>
-                </div>
-
-                <div class="text-center">
-                    <div class="mb-sm">
-                        <span class="text-copper" style="font-size: 2rem;">◉</span>
-                    </div>
-                    <h3 class="h6 mb-xs text-inverse">Quality Craftsmanship</h3>
-                    <p class="tiny text-inverse">Attention to every detail</p>
-                </div>
-
-                <div class="text-center">
-                    <div class="mb-sm">
-                        <span class="text-copper" style="font-size: 2rem;">⬤</span>
-                    </div>
-                    <h3 class="h6 mb-xs text-inverse">Post-Sale Service</h3>
-                    <p class="tiny text-inverse">Support that extends for years</p>
-                </div>
-
-                <div class="text-center">
-                    <div class="mb-sm">
-                        <span class="text-copper" style="font-size: 2rem;">◈</span>
-                    </div>
-                    <h3 class="h6 mb-xs text-inverse">Responsive Team</h3>
-                    <p class="tiny text-inverse">Questions answered promptly</p>
+                <div class="stat-box">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Years Support</div>
+                    <p class="stat-description">Post-completion concierge service</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ARCHITECT TESTIMONIALS -->
-    <section class="section-lg bg-sand">
-        <div class="container max-w-2xl">
-            <div class="section-header">
-                <h2 class="section-title text-center">Architect & Designer Feedback</h2>
-                <p class="section-description text-center">Trusted by Austin's leading design professionals</p>
-            </div>
+    <section class="section-lg bg-dark">
+        <div class="container container-narrow">
+            <h2 class="text-center mb-xl" style="color: var(--white);">Architect & Designer Feedback</h2>
+            <p class="text-center mb-xl" style="color: rgba(255,255,255,0.85); font-size: 17px;">Trusted by Austin's leading design professionals</p>
 
-            <div class="grid grid-cols-1 gap-md">
-                <div class="card">
-                    <div class="card-body">
-                        <blockquote>
-                            <p class="text-secondary mb-sm">"Sanctuary Custom Homes is one of the few builders I trust to execute complex designs with precision. Their attention to architectural intent and willingness to solve problems collaboratively makes them a preferred partner."</p>
-                            <cite class="text-copper font-semibold">— Jon Butler, JBA Architecture</cite>
-                        </blockquote>
-                    </div>
-                </div>
+            <div class="grid grid-1" style="gap: var(--space-lg);">
+                <blockquote style="background: rgba(255,255,255,0.05); padding: var(--space-lg); border-radius: 4px; border-left: 4px solid var(--copper);">
+                    <p style="font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.9); margin-bottom: var(--space-sm);">"Sanctuary Custom Homes is one of the few builders I trust to execute complex designs with precision. Their attention to architectural intent and willingness to solve problems collaboratively makes them a preferred partner."</p>
+                    <cite style="color: var(--copper); font-style: normal; font-weight: 600;">— Jon Butler, JBA Architecture</cite>
+                </blockquote>
 
-                <div class="card">
-                    <div class="card-body">
-                        <blockquote>
-                            <p class="text-secondary mb-sm">"Working with Nick and his team is seamless. They understand design, communicate proactively, and deliver exceptional quality. I recommend them to clients without hesitation."</p>
-                            <cite class="text-copper font-semibold">— Thomas Tornbjerg, Tornbjerg Design</cite>
-                        </blockquote>
-                    </div>
-                </div>
+                <blockquote style="background: rgba(255,255,255,0.05); padding: var(--space-lg); border-radius: 4px; border-left: 4px solid var(--copper);">
+                    <p style="font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.9); margin-bottom: var(--space-sm);">"Working with Nick and his team is seamless. They understand design, communicate proactively, and deliver exceptional quality. I recommend them to clients without hesitation."</p>
+                    <cite style="color: var(--copper); font-style: normal; font-weight: 600;">— Thomas Tornbjerg, Tornbjerg Design</cite>
+                </blockquote>
             </div>
         </div>
     </section>
 
     <!-- CTA -->
-    <section class="section-lg bg-white">
-        <div class="container text-center">
-            <h2 class="h2 mb-sm">Join Our Family of Satisfied Clients</h2>
-            <p class="lead mb-lg mx-auto max-w-2xl">Experience the Sanctuary difference for yourself. Let's discuss your custom home vision and how we can bring it to life with precision, transparency, and exceptional service.</p>
-            <div class="flex gap-md justify-center flex-wrap">
+    <section class="section-lg bg-white text-center">
+        <div class="container container-narrow">
+            <h2 class="mb-md">Join Our Family of Satisfied Clients</h2>
+            <p class="mb-xl" style="font-size: 18px; line-height: 1.7; color: var(--gray);">Experience the Sanctuary difference for yourself. Let's discuss your custom home vision and how we can bring it to life with precision, transparency, and exceptional service.</p>
+            <div style="display: flex; gap: var(--space-sm); justify-content: center; flex-wrap: wrap;">
                 <a href="contact.html" class="btn btn-primary btn-lg">Request a Consultation</a>
                 <a href="projects.html" class="btn btn-secondary btn-lg">View Our Portfolio</a>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Sanctuary Custom Homes</h3>
-                    <p class="footer-link">Luxury Built on Precision and Quality</p>
-                    <p class="footer-link">Austin & Texas Hill Country</p>
-                    <p class="footer-link mt-sm">
-                        <a href="tel:+15125551234">Phone: (512) 555-1234</a><br>
-                        <a href="mailto:info@sanctuaryhomesatx.com">info@sanctuaryhomesatx.com</a>
-                    </p>
-                </div>
+    <!-- FOOTER PLACEHOLDER -->
+    <div id="footer-placeholder"></div>
 
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <a href="about.html" class="footer-link">About Us</a>
-                    <a href="projects.html" class="footer-link">Featured Projects</a>
-                    <a href="methodology.html" class="footer-link">Our Methodology</a>
-                    <a href="difference.html" class="footer-link">Sanctuary Difference</a>
-                    <a href="testimonials.html" class="footer-link">Testimonials</a>
-                    <a href="contact.html" class="footer-link">Contact Us</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Legal & Resources</h3>
-                    <a href="privacy.html" class="footer-link">Privacy Policy</a>
-                    <a href="terms.html" class="footer-link">Terms of Service</a>
-                    <p class="footer-link mt-md">TX Builder License #123456</p>
-                    <p class="footer-link">Bonded & Insured</p>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; <span class="current-year">2024</span> Sanctuary Custom Homes. All rights reserved.</p>
-                <div class="footer-social">
-                    <a href="#" aria-label="Facebook">Facebook</a>
-                    <a href="#" aria-label="Instagram">Instagram</a>
-                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
+    <!-- Component Loader -->
+    <script src="js/components.js"></script>
 
 </body>
 </html>

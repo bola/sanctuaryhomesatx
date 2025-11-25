@@ -8,340 +8,251 @@
     <title>The Sanctuary Difference | Sanctuary Custom Homes</title>
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/clean-design.css">
+
+    <style>
+        .feature-large {
+            background: var(--white);
+            border-radius: 4px;
+            padding: var(--space-xl);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+            margin-bottom: var(--space-lg);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .comparison-table th {
+            padding: var(--space-md);
+            text-align: left;
+            background: var(--light-gray);
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: var(--space-md);
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .comparison-table td:nth-child(2) {
+            color: var(--copper);
+            font-weight: 600;
+        }
+
+        .comparison-table td:nth-child(3) {
+            color: var(--gray);
+        }
+    </style>
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header class="header" id="header">
-        <div class="container header-container">
-            <a href="index.html" class="logo">Sanctuary</a>
-
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="about.html" class="nav-link">About Us</a></li>
-                    <li><a href="projects.html" class="nav-link">Featured Projects</a></li>
-                    <li><a href="methodology.html" class="nav-link">Our Methodology</a></li>
-                    <li><a href="difference.html" class="nav-link active">Sanctuary Difference</a></li>
-                    <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
-                    <li><a href="contact.html" class="btn btn-primary btn-sm">Contact Us</a></li>
-                </ul>
-            </nav>
-
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </header>
-
-    <!-- Mobile Navigation -->
-    <div class="mobile-nav" id="mobileNav">
-        <ul class="mobile-nav-list">
-            <li><a href="index.html" class="mobile-nav-link">Home</a></li>
-            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
-            <li><a href="projects.html" class="mobile-nav-link">Featured Projects</a></li>
-            <li><a href="methodology.html" class="mobile-nav-link">Our Methodology</a></li>
-            <li><a href="difference.html" class="mobile-nav-link">Sanctuary Difference</a></li>
-            <li><a href="testimonials.html" class="mobile-nav-link">Testimonials</a></li>
-            <li><a href="contact.html" class="mobile-nav-link">Contact Us</a></li>
-        </ul>
-    </div>
-
-    <!-- PAGE HERO -->
-    <section class="section-lg bg-sand" style="margin-top: 0;">
-        <div class="container">
-            <div class="section-header">
-                <p class="section-subtitle">What Sets Us Apart</p>
-                <h1 class="section-title">The Sanctuary Difference</h1>
-                <p class="section-description lead">Concierge service that extends beyond completion—because your relationship with your builder shouldn't end at the final walkthrough.</p>
-            </div>
-        </div>
+    <!-- HEADER PLACEHOLDER -->
+    <div id="header-placeholder"></div>
     </section>
 
     <!-- INTRO -->
     <section class="section bg-white">
-        <div class="container max-w-2xl text-center">
-            <p class="lead text-secondary mb-md">Most builders hand you the keys and move on to the next project. At Sanctuary Custom Homes, we believe that's when the real relationship begins.</p>
-            <p class="text-secondary">We've built a business model around long-term client relationships, lifetime home support, and a genuine commitment to your satisfaction—not just on move-in day, but for years to come.</p>
+        <div class="container container-narrow text-center">
+            <p style="font-size: 19px; line-height: 1.8; color: var(--dark-gray); margin-bottom: var(--space-md);">Most builders hand you the keys and move on to the next project. At Sanctuary Custom Homes, we believe that's when the real relationship begins.</p>
+            <p style="font-size: 17px; line-height: 1.7; color: var(--gray);">We've built a business model around long-term client relationships, lifetime home support, and a genuine commitment to your satisfaction—not just on move-in day, but for years to come.</p>
         </div>
     </section>
 
     <!-- KEY DIFFERENTIATORS -->
-    <section class="section-lg bg-sand">
-        <div class="container">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-xl">
+    <section class="section-lg bg-light">
+        <div class="container" style="max-width: 1100px;">
 
-                <!-- Home Cloud™ -->
-                <div class="card card-elevated">
-                    <div class="card-body">
-                        <div class="mb-md">
-                            <span class="text-copper" style="font-size: 3rem;">☁️</span>
-                        </div>
-                        <h3 class="h3 mb-sm text-copper">Home Cloud™</h3>
-                        <h4 class="h5 mb-md">Your Home's Digital Twin</h4>
+            <!-- Home Cloud -->
+            <div class="feature-large">
+                <div class="feature-icon">☁️</div>
+                <h2 style="font-size: 2.25rem; margin-bottom: var(--space-sm);">Home Cloud™</h2>
+                <h3 style="font-size: 1.5rem; font-weight: 300; margin-bottom: var(--space-lg); color: var(--gray);">Your Home's Digital Twin</h3>
 
-                        <p class="text-secondary mb-md">At completion, you receive full access to Home Cloud™—a comprehensive digital archive of your entire project. Never search for a warranty document, paint color, or appliance manual again.</p>
+                <p style="font-size: 17px; line-height: 1.8; margin-bottom: var(--space-md);">At completion, you receive full access to Home Cloud™—a comprehensive digital archive of your entire project. Never search for a warranty document, paint color, or appliance manual again.</p>
 
-                        <h5 class="h6 mb-xs text-copper">What's Included:</h5>
-                        <ul class="text-secondary small mb-md">
-                            <li><strong>Complete Architectural Drawings:</strong> As-built plans and elevations</li>
-                            <li><strong>Material & Finish Selections:</strong> Every paint color, tile, fixture, and hardware spec</li>
-                            <li><strong>Appliance & Systems Documentation:</strong> Manuals, warranties, and maintenance schedules</li>
-                            <li><strong>Product Data Sheets:</strong> For every material used in your home</li>
-                            <li><strong>Vendor & Subcontractor Contacts:</strong> Direct lines to everyone who worked on your home</li>
-                            <li><strong>Photo Timeline:</strong> Complete photo documentation from site prep to final walkthrough</li>
-                            <li><strong>Warranty Information:</strong> Organized by system and expiration date</li>
-                        </ul>
-
-                        <p class="text-secondary small"><strong>Access anywhere, anytime.</strong> Whether you're planning a renovation in 10 years or need to order touch-up paint today, Home Cloud™ has the answer.</p>
+                <h4 style="margin-bottom: var(--space-sm); color: var(--copper);">What's Included:</h4>
+                <div class="grid grid-2" style="gap: var(--space-md); margin-bottom: var(--space-md);">
+                    <div>
+                        <p style="margin-bottom: 0.5rem;"><strong>Complete Architectural Drawings</strong><br>
+                        <span style="color: var(--gray); font-size: 15px;">As-built plans and elevations</span></p>
+                    </div>
+                    <div>
+                        <p style="margin-bottom: 0.5rem;"><strong>Material & Finish Selections</strong><br>
+                        <span style="color: var(--gray); font-size: 15px;">Every paint color, tile, fixture, and hardware spec</span></p>
+                    </div>
+                    <div>
+                        <p style="margin-bottom: 0.5rem;"><strong>Appliance & Systems Documentation</strong><br>
+                        <span style="color: var(--gray); font-size: 15px;">Manuals, warranties, and maintenance schedules</span></p>
+                    </div>
+                    <div>
+                        <p style="margin-bottom: 0.5rem;"><strong>Product Data Sheets</strong><br>
+                        <span style="color: var(--gray); font-size: 15px;">For every material used in your home</span></p>
+                    </div>
+                    <div>
+                        <p style="margin-bottom: 0.5rem;"><strong>Vendor & Subcontractor Contacts</strong><br>
+                        <span style="color: var(--gray); font-size: 15px;">Direct lines to everyone who worked on your home</span></p>
+                    </div>
+                    <div>
+                        <p style="margin-bottom: 0.5rem;"><strong>Photo Timeline</strong><br>
+                        <span style="color: var(--gray); font-size: 15px;">Complete documentation from site prep to completion</span></p>
                     </div>
                 </div>
 
-                <!-- 5-Year Concierge Service -->
-                <div class="card card-elevated">
-                    <div class="card-body">
-                        <div class="mb-md">
-                            <span class="text-copper" style="font-size: 3rem;">★</span>
-                        </div>
-                        <h3 class="h3 mb-sm text-copper">5-Year Concierge Service</h3>
-                        <h4 class="h5 mb-md">Your Lifetime Builder Advocate</h4>
-
-                        <p class="text-secondary mb-md">From day one of ownership, you have a dedicated concierge—your single point of contact for anything related to your home. Not a call center. Not a ticket system. A real person who knows your project inside and out.</p>
-
-                        <h5 class="h6 mb-xs text-copper">How It Works:</h5>
-                        <ul class="text-secondary small mb-md">
-                            <li><strong>Direct Access:</strong> Call, text, or email your concierge directly</li>
-                            <li><strong>Warranty Coordination:</strong> We handle all warranty claims and scheduling on your behalf</li>
-                            <li><strong>Vendor Dispatch:</strong> Need something fixed? We orchestrate, you approve.</li>
-                            <li><strong>Maintenance Guidance:</strong> Seasonal reminders and proactive care recommendations</li>
-                            <li><strong>Future Projects:</strong> Planning an addition or upgrade? We're already familiar with your home.</li>
-                            <li><strong>Home Knowledge Transfer:</strong> Selling your home? We'll brief the new owners.</li>
-                        </ul>
-
-                        <p class="text-secondary small"><strong>Included with every Sanctuary home.</strong> This isn't an upsell—it's our commitment to you and your investment.</p>
-                    </div>
+                <div style="background: var(--off-white); padding: var(--space-md); border-radius: 4px; border-left: 4px solid var(--copper);">
+                    <p style="margin: 0; font-size: 16px;"><strong>Access anywhere, anytime.</strong> Whether you're planning a renovation in 10 years or need to order touch-up paint today, Home Cloud™ has the answer.</p>
                 </div>
-
             </div>
+
+            <!-- 5-Year Concierge -->
+            <div class="feature-large">
+                <div class="feature-icon">★</div>
+                <h2 style="font-size: 2.25rem; margin-bottom: var(--space-sm);">5-Year Concierge Service</h2>
+                <h3 style="font-size: 1.5rem; font-weight: 300; margin-bottom: var(--space-lg); color: var(--gray);">Your Lifetime Builder Advocate</h3>
+
+                <p style="font-size: 17px; line-height: 1.8; margin-bottom: var(--space-md);">From day one of ownership, you have a dedicated concierge—your single point of contact for anything related to your home. Not a call center. Not a ticket system. A real person who knows your project inside and out.</p>
+
+                <h4 style="margin-bottom: var(--space-sm); color: var(--copper);">How It Works:</h4>
+                <div class="grid grid-2" style="gap: var(--space-md); margin-bottom: var(--space-md);">
+                    <div>
+                        <p style="margin-bottom: 0.5rem;"><strong>Direct Access</strong><br>
+                        <span style="color: var(--gray); font-size: 15px;">Call, text, or email your concierge directly</span></p>
+                    </div>
+                    <div>
+                        <p style="margin-bottom: 0.5rem;"><strong>Warranty Coordination</strong><br>
+                        <span style="color: var(--gray); font-size: 15px;">We handle all warranty claims and scheduling on your behalf</span></p>
+                    </div>
+                    <div>
+                        <p style="margin-bottom: 0.5rem;"><strong>Vendor Dispatch</strong><br>
+                        <span style="color: var(--gray); font-size: 15px;">Need something fixed? We orchestrate, you approve</span></p>
+                    </div>
+                    <div>
+                        <p style="margin-bottom: 0.5rem;"><strong>Maintenance Guidance</strong><br>
+                        <span style="color: var(--gray); font-size: 15px;">Seasonal reminders and proactive care recommendations</span></p>
+                    </div>
+                    <div>
+                        <p style="margin-bottom: 0.5rem;"><strong>Future Projects</strong><br>
+                        <span style="color: var(--gray); font-size: 15px;">Planning an addition? We're already familiar with your home</span></p>
+                    </div>
+                    <div>
+                        <p style="margin-bottom: 0.5rem;"><strong>Home Knowledge Transfer</strong><br>
+                        <span style="color: var(--gray); font-size: 15px;">Selling your home? We'll brief the new owners</span></p>
+                    </div>
+                </div>
+
+                <div style="background: var(--off-white); padding: var(--space-md); border-radius: 4px; border-left: 4px solid var(--copper);">
+                    <p style="margin: 0; font-size: 16px;"><strong>Included with every Sanctuary home.</strong> This isn't an upsell—it's our commitment to you and your investment.</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- OTHER DIFFERENTIATORS -->
-    <section class="section-lg bg-white">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">More Than Just a Builder</h2>
-                <p class="section-description">A partnership built on trust, transparency, and long-term commitment</p>
-            </div>
+    <!-- HOW WE COMPARE -->
+    <section class="section bg-white">
+        <div class="container" style="max-width: 900px;">
+            <h2 class="text-center mb-xl">How We Compare</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="mb-sm">
-                            <span class="text-copper" style="font-size: 2rem;">✓</span>
-                        </div>
-                        <h3 class="h5 mb-xs">Post-Sale Service</h3>
-                        <p class="text-secondary small">Lifetime support from day one onward—your builder relationship doesn't end at closing.</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="mb-sm">
-                            <span class="text-copper" style="font-size: 2rem;">◆</span>
-                        </div>
-                        <h3 class="h5 mb-xs">Transparent Budgeting</h3>
-                        <p class="text-secondary small">Detailed line-item budgets with real-time tracking—no surprises, no hidden costs.</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="mb-sm">
-                            <span class="text-copper" style="font-size: 2rem;">◉</span>
-                        </div>
-                        <h3 class="h5 mb-xs">Proactive Communication</h3>
-                        <p class="text-secondary small">Weekly updates and open channels—you're never left wondering what's happening.</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="mb-sm">
-                            <span class="text-copper" style="font-size: 2rem;">⬤</span>
-                        </div>
-                        <h3 class="h5 mb-xs">On-Time Delivery</h3>
-                        <p class="text-secondary small">Fixed milestones with accountability at every phase—we respect your timeline.</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="mb-sm">
-                            <span class="text-copper" style="font-size: 2rem;">★</span>
-                        </div>
-                        <h3 class="h5 mb-xs">Technology-Driven</h3>
-                        <p class="text-secondary small">Modern project management tools for smarter, more efficient execution.</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="mb-sm">
-                            <span class="text-copper" style="font-size: 2rem;">◈</span>
-                        </div>
-                        <h3 class="h5 mb-xs">Vendor Excellence</h3>
-                        <p class="text-secondary small">Vetted subcontractors held to our quality and performance standards.</p>
-                    </div>
-                </div>
-
-            </div>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th class="text-center">Sanctuary</th>
+                        <th class="text-center">Typical Builder</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Post-Sale Support</strong></td>
+                        <td class="text-center">5+ Years</td>
+                        <td class="text-center">1 Year</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Digital Handover</strong></td>
+                        <td class="text-center">Home Cloud™</td>
+                        <td class="text-center">Paper Binder</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Warranty Management</strong></td>
+                        <td class="text-center">We Coordinate</td>
+                        <td class="text-center">DIY</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Project Tracking</strong></td>
+                        <td class="text-center">Real-Time Portal</td>
+                        <td class="text-center">Weekly Emails</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Budget Transparency</strong></td>
+                        <td class="text-center">Line-Item Detail</td>
+                        <td class="text-center">Lump Sum</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Communication</strong></td>
+                        <td class="text-center">Dedicated Contact</td>
+                        <td class="text-center">Call When Needed</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
 
-    <!-- COMPARISON -->
-    <section class="section-lg bg-charcoal text-inverse">
-        <div class="container">
-            <h2 class="h2 mb-lg text-center text-inverse">How We Compare</h2>
-
-            <div class="max-w-2xl mx-auto">
-                <div class="card bg-white">
-                    <div class="card-body">
-                        <table class="w-full">
-                            <thead>
-                                <tr class="border-b">
-                                    <th class="text-left p-sm"></th>
-                                    <th class="text-center p-sm text-copper">Sanctuary</th>
-                                    <th class="text-center p-sm text-secondary">Typical Builder</th>
-                                </tr>
-                            </thead>
-                            <tbody class="small">
-                                <tr class="border-b">
-                                    <td class="p-sm"><strong>Post-Sale Support</strong></td>
-                                    <td class="text-center p-sm text-copper">5+ Years</td>
-                                    <td class="text-center p-sm text-secondary">1 Year</td>
-                                </tr>
-                                <tr class="border-b">
-                                    <td class="p-sm"><strong>Digital Handover</strong></td>
-                                    <td class="text-center p-sm text-copper">Home Cloud™</td>
-                                    <td class="text-center p-sm text-secondary">Paper Binder</td>
-                                </tr>
-                                <tr class="border-b">
-                                    <td class="p-sm"><strong>Warranty Management</strong></td>
-                                    <td class="text-center p-sm text-copper">We Coordinate</td>
-                                    <td class="text-center p-sm text-secondary">DIY</td>
-                                </tr>
-                                <tr class="border-b">
-                                    <td class="p-sm"><strong>Project Tracking</strong></td>
-                                    <td class="text-center p-sm text-copper">Real-Time Portal</td>
-                                    <td class="text-center p-sm text-secondary">Weekly Emails</td>
-                                </tr>
-                                <tr class="border-b">
-                                    <td class="p-sm"><strong>Budget Transparency</strong></td>
-                                    <td class="text-center p-sm text-copper">Line-Item Detail</td>
-                                    <td class="text-center p-sm text-secondary">Lump Sum</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-sm"><strong>Communication</strong></td>
-                                    <td class="text-center p-sm text-copper">Dedicated Contact</td>
-                                    <td class="text-center p-sm text-secondary">Call When Needed</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CLIENT TESTIMONIAL -->
-    <section class="section-lg bg-sand">
-        <div class="container max-w-2xl text-center">
-            <blockquote class="border-l-4 pl-md" style="border-color: var(--color-copper);">
-                <p class="lead mb-md">"The Home Cloud system is a game-changer. Two years after moving in, we needed to order replacement tile for a small repair. Instead of guessing or searching, we logged into Home Cloud, found the exact product spec, and ordered it in minutes. That's the Sanctuary difference."</p>
-                <cite class="text-secondary">— Hill Country Client, Superview Drive</cite>
+    <!-- TESTIMONIAL -->
+    <section class="section-lg bg-dark">
+        <div class="container container-narrow text-center">
+            <blockquote style="border-left: 4px solid var(--copper); padding-left: var(--space-lg);">
+                <p style="font-size: 20px; line-height: 1.7; color: var(--white); margin-bottom: var(--space-md);">"The Home Cloud system is a game-changer. Two years after moving in, we needed to order replacement tile for a small repair. Instead of guessing or searching, we logged into Home Cloud, found the exact product spec, and ordered it in minutes. That's the Sanctuary difference."</p>
+                <cite style="color: var(--copper); font-style: normal;">— Hill Country Client, Superview Drive</cite>
             </blockquote>
         </div>
     </section>
 
     <!-- WHY IT MATTERS -->
-    <section class="section-lg bg-white">
-        <div class="container max-w-2xl">
-            <h2 class="h2 mb-md text-center">Why This Matters</h2>
+    <section class="section bg-white">
+        <div class="container container-narrow">
+            <h2 class="text-center mb-lg">Why This Matters</h2>
 
-            <div class="text-secondary leading-relaxed">
+            <div style="font-size: 17px; line-height: 1.8; color: var(--dark-gray);">
                 <p class="mb-md">Building a custom home is one of the largest investments you'll ever make. Yet most builders treat it as a transaction—complete the project, collect payment, move on.</p>
 
                 <p class="mb-md">At Sanctuary, we see it differently. Your home will be part of your life for decades. Systems will need maintenance. Finishes will require touch-ups. Questions will arise. And when they do, you shouldn't be left searching for answers or tracking down long-gone subcontractors.</p>
 
                 <p class="mb-md">Home Cloud™ and our concierge service aren't just nice-to-haves—they're a fundamental shift in how we think about our responsibility to you. We're not just building your home. We're standing behind it for the long term.</p>
 
-                <p><strong>That's the Sanctuary difference.</strong></p>
+                <p style="font-size: 19px; font-weight: 600; color: var(--copper);">That's the Sanctuary difference.</p>
             </div>
         </div>
     </section>
 
     <!-- CTA -->
-    <section class="section-lg bg-copper text-inverse">
-        <div class="container text-center">
-            <h2 class="h2 mb-sm text-white">Experience the Difference</h2>
-            <p class="lead mb-lg mx-auto max-w-2xl text-white">Let's discuss how our unique approach to custom home building can give you peace of mind—not just during construction, but for years to come.</p>
-            <div class="flex gap-md justify-center flex-wrap">
-                <a href="contact.html" class="btn btn-primary btn-lg" style="background-color: var(--color-white); color: var(--color-copper);">Schedule a Consultation</a>
-                <a href="testimonials.html" class="btn btn-secondary btn-lg">Read Client Stories</a>
+    <section class="section-lg bg-copper text-center">
+        <div class="container container-narrow">
+            <h2 class="mb-md" style="color: var(--white);">Experience the Difference</h2>
+            <p class="mb-xl" style="font-size: 18px; line-height: 1.7; color: rgba(255,255,255,0.95);">Let's discuss how our unique approach to custom home building can give you peace of mind—not just during construction, but for years to come.</p>
+            <div style="display: flex; gap: var(--space-sm); justify-content: center; flex-wrap: wrap;">
+                <a href="contact.html" class="btn btn-primary btn-lg" style="background: var(--white); color: var(--copper);">Schedule a Consultation</a>
+                <a href="testimonials.html" class="btn btn-secondary btn-lg" style="border-color: var(--white); color: var(--white);">Read Client Stories</a>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Sanctuary Custom Homes</h3>
-                    <p class="footer-link">Luxury Built on Precision and Quality</p>
-                    <p class="footer-link">Austin & Texas Hill Country</p>
-                    <p class="footer-link mt-sm">
-                        <a href="tel:+15125551234">Phone: (512) 555-1234</a><br>
-                        <a href="mailto:info@sanctuaryhomesatx.com">info@sanctuaryhomesatx.com</a>
-                    </p>
-                </div>
+    <!-- FOOTER PLACEHOLDER -->
+    <div id="footer-placeholder"></div>
 
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <a href="about.html" class="footer-link">About Us</a>
-                    <a href="projects.html" class="footer-link">Featured Projects</a>
-                    <a href="methodology.html" class="footer-link">Our Methodology</a>
-                    <a href="difference.html" class="footer-link">Sanctuary Difference</a>
-                    <a href="testimonials.html" class="footer-link">Testimonials</a>
-                    <a href="contact.html" class="footer-link">Contact Us</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Legal & Resources</h3>
-                    <a href="privacy.html" class="footer-link">Privacy Policy</a>
-                    <a href="terms.html" class="footer-link">Terms of Service</a>
-                    <p class="footer-link mt-md">TX Builder License #123456</p>
-                    <p class="footer-link">Bonded & Insured</p>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; <span class="current-year">2024</span> Sanctuary Custom Homes. All rights reserved.</p>
-                <div class="footer-social">
-                    <a href="#" aria-label="Facebook">Facebook</a>
-                    <a href="#" aria-label="Instagram">Instagram</a>
-                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
+    <!-- Component Loader -->
+    <script src="js/components.js"></script>
 
 </body>
 </html>

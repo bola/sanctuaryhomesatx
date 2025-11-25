@@ -8,76 +8,175 @@
     <title>Project Details | Sanctuary Custom Homes</title>
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/clean-design.css">
+
+    <style>
+        .project-hero {
+            padding-top: calc(var(--header-height) + var(--space-2xl));
+        }
+
+        .gallery-item {
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 4px;
+            aspect-ratio: 4/3;
+            background: var(--light-gray);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .detail-row {
+            display: flex;
+            padding: var(--space-md);
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: var(--copper);
+            min-width: 150px;
+        }
+
+        .detail-value {
+            color: var(--dark-gray);
+        }
+
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90vh;
+            position: relative;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .lightbox-close,
+        .lightbox-prev,
+        .lightbox-next {
+            position: fixed;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: none;
+            font-size: 3rem;
+            cursor: pointer;
+            padding: 1rem;
+            transition: background 0.2s;
+            z-index: 10001;
+        }
+
+        .lightbox-close:hover,
+        .lightbox-prev:hover,
+        .lightbox-next:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-close {
+            top: 20px;
+            right: 20px;
+            border-radius: 4px;
+        }
+
+        .lightbox-prev {
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 4px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 4px;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+        }
+
+        .project-card-body {
+            padding: var(--space-md);
+        }
+
+        .project-card-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+        }
+
+        .project-card-location {
+            color: var(--gray);
+            font-size: 15px;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header class="header" id="header">
-        <div class="container header-container">
-            <a href="index.html" class="logo">Sanctuary</a>
-
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="about.html" class="nav-link">About Us</a></li>
-                    <li><a href="projects.html" class="nav-link">Featured Projects</a></li>
-                    <li><a href="methodology.html" class="nav-link">Our Methodology</a></li>
-                    <li><a href="difference.html" class="nav-link">Sanctuary Difference</a></li>
-                    <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
-                    <li><a href="contact.html" class="btn btn-primary btn-sm">Contact Us</a></li>
-                </ul>
-            </nav>
-
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </header>
-
-    <!-- Mobile Navigation -->
-    <div class="mobile-nav" id="mobileNav">
-        <ul class="mobile-nav-list">
-            <li><a href="index.html" class="mobile-nav-link">Home</a></li>
-            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
-            <li><a href="projects.html" class="mobile-nav-link">Featured Projects</a></li>
-            <li><a href="methodology.html" class="mobile-nav-link">Our Methodology</a></li>
-            <li><a href="difference.html" class="mobile-nav-link">Sanctuary Difference</a></li>
-            <li><a href="testimonials.html" class="mobile-nav-link">Testimonials</a></li>
-            <li><a href="contact.html" class="mobile-nav-link">Contact Us</a></li>
-        </ul>
-    </div>
-
-    <!-- PROJECT HEADER -->
-    <section class="section bg-sand" style="margin-top: 0; padding-top: calc(var(--header-height) + var(--spacing-lg));">
-        <div class="container">
-            <div class="mb-sm">
-                <a href="projects.html" class="text-copper small">← Back to Projects</a>
-            </div>
-
-            <div id="projectHeader">
-                <!-- Dynamically populated by JavaScript -->
-                <h1 class="h1 mb-xs">Project Title</h1>
-                <p class="lead text-secondary">Loading project details...</p>
-            </div>
-        </div>
-    </section>
+    <!-- HEADER PLACEHOLDER -->
+    <div id="header-placeholder"></div>
 
     <!-- PROJECT GALLERY -->
-    <section class="section bg-white">
+    <section class="section-lg bg-white">
         <div class="container">
-            <div id="projectGallery" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+            <div id="projectGallery" class="grid grid-3">
                 <!-- Dynamically populated by JavaScript -->
             </div>
         </div>
     </section>
 
     <!-- PROJECT DETAILS -->
-    <section class="section bg-sand">
-        <div class="container max-w-2xl">
-            <div id="projectDetails">
+    <section class="section bg-light">
+        <div class="container container-narrow">
+            <h2 class="text-center mb-xl">Project Details</h2>
+            <div id="projectDetails" style="background: var(--white); border-radius: 4px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);">
                 <!-- Dynamically populated by JavaScript -->
             </div>
         </div>
@@ -85,32 +184,32 @@
 
     <!-- CREDITS -->
     <section class="section bg-white">
-        <div class="container max-w-2xl">
-            <h2 class="h3 mb-md text-center">Project Credits</h2>
-            <div id="projectCredits" class="card p-lg">
+        <div class="container container-narrow">
+            <h2 class="text-center mb-xl">Project Credits</h2>
+            <div id="projectCredits" style="background: var(--off-white); padding: var(--space-xl); border-radius: 4px;">
                 <!-- Dynamically populated by JavaScript -->
             </div>
         </div>
     </section>
 
     <!-- MORE PROJECTS -->
-    <section class="section-lg bg-sand">
+    <section class="section-lg bg-light">
         <div class="container">
-            <h2 class="h2 mb-lg text-center">More Projects</h2>
-            <div id="relatedProjects" class="grid grid-cols-1 md:grid-cols-3 gap-md">
+            <h2 class="text-center mb-xl">More Projects</h2>
+            <div id="relatedProjects" class="grid grid-3">
                 <!-- Dynamically populated by JavaScript -->
             </div>
-            <div class="text-center mt-lg">
+            <div class="text-center mt-xl">
                 <a href="projects.html" class="btn btn-primary">View All Projects</a>
             </div>
         </div>
     </section>
 
     <!-- CTA -->
-    <section class="section-lg bg-white">
-        <div class="container text-center">
-            <h2 class="h2 mb-sm">Ready to Start Your Project?</h2>
-            <p class="lead mb-lg mx-auto max-w-2xl">Let's discuss your custom home vision and bring it to life with the same precision and care.</p>
+    <section class="section-lg bg-white text-center">
+        <div class="container container-narrow">
+            <h2 class="mb-md">Ready to Start Your Project?</h2>
+            <p class="mb-xl" style="font-size: 18px; line-height: 1.7; color: var(--gray);">Let's discuss your custom home vision and bring it to life with the same precision and care.</p>
             <a href="contact.html" class="btn btn-primary btn-lg">Request a Consultation</a>
         </div>
     </section>
@@ -125,52 +224,11 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Sanctuary Custom Homes</h3>
-                    <p class="footer-link">Luxury Built on Precision and Quality</p>
-                    <p class="footer-link">Austin & Texas Hill Country</p>
-                    <p class="footer-link mt-sm">
-                        <a href="tel:+15125551234">Phone: (512) 555-1234</a><br>
-                        <a href="mailto:info@sanctuaryhomesatx.com">info@sanctuaryhomesatx.com</a>
-                    </p>
-                </div>
+    <!-- FOOTER PLACEHOLDER -->
+    <div id="footer-placeholder"></div>
 
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <a href="about.html" class="footer-link">About Us</a>
-                    <a href="projects.html" class="footer-link">Featured Projects</a>
-                    <a href="methodology.html" class="footer-link">Our Methodology</a>
-                    <a href="difference.html" class="footer-link">Sanctuary Difference</a>
-                    <a href="testimonials.html" class="footer-link">Testimonials</a>
-                    <a href="contact.html" class="footer-link">Contact Us</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Legal & Resources</h3>
-                    <a href="privacy.html" class="footer-link">Privacy Policy</a>
-                    <a href="terms.html" class="footer-link">Terms of Service</a>
-                    <p class="footer-link mt-md">TX Builder License #123456</p>
-                    <p class="footer-link">Bonded & Insured</p>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; <span class="current-year">2024</span> Sanctuary Custom Homes. All rights reserved.</p>
-                <div class="footer-social">
-                    <a href="#" aria-label="Facebook">Facebook</a>
-                    <a href="#" aria-label="Instagram">Instagram</a>
-                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
-    <script src="js/project-detail.js"></script>
+    <!-- Component Loader -->
+    <script src="js/components.js"></script>
 
 </body>
 </html>
