@@ -1,0 +1,34 @@
+# Operating System
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+~$*
+
+# Large images (originals)
+*.psd
+*.ai
+
+# Build artifacts
+dist/
+build/
+*.min.css
+*.min.js
+
+# Environment
+.env
+.env.local
+
+# Dependencies (if using any)
+node_modules/

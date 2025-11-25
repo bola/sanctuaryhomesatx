@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sanctuary Custom Homes - Luxury custom home builder in Austin & Texas Hill Country. 60+ homes delivered with precision, transparency, and concierge care.">
+
+    <title>Sanctuary Custom Homes | Austin & Hill Country Custom Home Builder</title>
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== MODERN DESIGN SYSTEM ===== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Colors - Clean and minimal */
+            --white: #FFFFFF;
+            --off-white: #FAFAFA;
+            --light-gray: #F5F5F5;
+            --gray: #9E9E9E;
+            --dark-gray: #424242;
+            --charcoal: #2B2B2B;
+            --copper: #B87333;
+
+            /* Typography */
+            --font-heading: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+
+            /* Spacing - Generous */
+            --space-unit: 1rem;
+            --space-xs: calc(var(--space-unit) * 0.5);
+            --space-sm: var(--space-unit);
+            --space-md: calc(var(--space-unit) * 2);
+            --space-lg: calc(var(--space-unit) * 4);
+            --space-xl: calc(var(--space-unit) * 6);
+            --space-2xl: calc(var(--space-unit) * 8);
+
+            /* Layout */
+            --max-width: 1400px;
+            --header-height: 90px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--charcoal);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== HEADER - MINIMAL & CLEAN ===== */
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--header-height);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .header-content {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+        }
+
+        .nav a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            transition: color 0.2s;
+        }
+
+        .nav a:hover {
+            color: var(--charcoal);
+        }
+
+        .btn-contact {
+            padding: 12px 28px;
+            background: var(--charcoal);
+            color: var(--white);
+            border-radius: 2px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .btn-contact:hover {
+            background: var(--copper);
+            color: var(--white);
+        }
+
+        /* ===== HERO - FULL-SCREEN & ELEGANT ===== */
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.4));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--white);
+            max-width: 900px;
+            padding: 0 var(--space-md);
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: var(--space-md);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            font-weight: 300;
+            margin-bottom: var(--space-lg);
+            opacity: 0.95;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            gap: var(--space-sm);
+        }
+
+        .btn {
+            padding: 16px 36px;
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.25s;
+            letter-spacing: 0.02em;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--charcoal);
+        }
+
+        .btn-primary:hover {
+            background: var(--copper);
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--white);
+        }
+
+        /* ===== SECTION - SPACIOUS LAYOUT ===== */
+
+        .section {
+            padding: var(--space-2xl) var(--space-md);
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto var(--space-xl);
+        }
+
+        .section-label {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--copper);
+            margin-bottom: var(--space-sm);
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--charcoal);
+            margin-bottom: var(--space-sm);
+        }
+
+        .section-description {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--gray);
+            font-weight: 300;
+        }
+
+        /* ===== PROJECT CAROUSEL ===== */
+
+        .project-carousel {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: var(--space-lg);
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: var(--white);
+        }
+
+        .carousel-info h3 {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .carousel-controls {
+            display: flex;
+            gap: var(--space-sm);
+            justify-content: center;
+            margin-top: var(--space-md);
+        }
+
+        .carousel-btn {
+            width: 50px;
+            height: 50px;
+            border: 1px solid var(--light-gray);
+            background: var(--white);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            font-size: 20px;
+            color: var(--charcoal);
+        }
+
+        .carousel-btn:hover {
+            background: var(--charcoal);
+            color: var(--white);
+            border-color: var(--charcoal);
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: var(--space-md);
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .carousel-dot.active {
+            background: var(--charcoal);
+            width: 32px;
+            border-radius: 4px;
+        }
+
+        /* ===== FEATURES GRID ===== */
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .feature h3 {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: var(--space-sm);
+        }
+
+        .feature p {
+            color: var(--gray);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* ===== STATS ===== */
+
+        .stats {
+            background: var(--charcoal);
+            color: var(--white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-xl);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            color: var(--copper);
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        /* ===== FOOTER ===== */
+
+        .footer {
+            background: var(--off-white);
+            padding: var(--space-xl) var(--space-md) var(--space-lg);
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-xl);
+            max-width: var(--max-width);
+            margin: 0 auto var(--space-lg);
+        }
+
+        .footer h4 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 15px;
+            line-height: 2;
+            transition: color 0.2s;
+        }
+
+        .footer a:hover {
+            color: var(--charcoal);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--space-lg);
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        /* ===== MOBILE MENU ===== */
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--charcoal);
+            transition: all 0.3s;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            right: 0;
+            background: var(--white);
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: all 0.3s;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            z-index: 999;
+        }
+
+        .mobile-nav.open {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: var(--space-sm) var(--space-lg);
+            color: var(--dark-gray);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            transition: background 0.2s;
+        }
+
+        .mobile-nav a:hover {
+            background: var(--off-white);
+        }
+
+        .mobile-nav .btn-contact {
+            margin: var(--space-sm) var(--space-lg);
+            display: inline-block;
+            text-align: center;
+        }
+
+        /* ===== MOBILE STYLES ===== */
+
+        @media (max-width: 1024px) {
+            .nav {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .header-content {
+                padding: 0 var(--space-md);
+            }
+
+            .section {
+                padding: var(--space-xl) var(--space-md);
+            }
+
+            .carousel-slide img {
+                height: 400px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index-v2.html" class="logo">Sanctuary</a>
+            <nav class="nav">
+                <a href="index-v2.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="projects.html">Featured Projects</a>
+                <a href="methodology.html">Our Methodology</a>
+                <a href="difference.html">Sanctuary Difference</a>
+                <a href="testimonials.html">Testimonials</a>
+                <a href="contact.html" class="btn-contact">Contact Us</a>
+            </nav>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE NAV -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index-v2.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="projects.html">Featured Projects</a>
+        <a href="methodology.html">Our Methodology</a>
+        <a href="difference.html">Sanctuary Difference</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="contact.html" class="btn-contact">Contact Us</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-slide active">
+            <img src="Projects/05-superview-drive/superview-drive-01.jpg" alt="Luxury custom home">
+        </div>
+        <div class="hero-slide">
+            <img src="Projects/06-woodmont-avenue/1.png" alt="Modern custom home">
+        </div>
+        <div class="hero-slide">
+            <img src="Projects/02-bouldin-avenue/1.jpg" alt="Hill Country estate">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Luxury Built on Precision and Quality</h1>
+            <p class="hero-subtitle">Austin & Texas Hill Country Custom Home Builder</p>
+            <div class="hero-cta">
+                <a href="contact.html" class="btn btn-primary">Start Your Project</a>
+                <a href="#work" class="btn btn-secondary">View Our Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED PROJECTS -->
+    <section class="section" id="work">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Portfolio</div>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-description">60+ homes delivered across custom builds, spec homes, and remodels throughout Austin and the Texas Hill Country</p>
+            </div>
+
+            <div class="project-carousel">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="projectCarousel">
+                        <!-- Superview Drive -->
+                        <div class="carousel-slide">
+                            <img src="Projects/05-superview-drive/superview-drive-01.jpg" alt="Superview Drive">
+                            <div class="carousel-info">
+                                <h3>Superview Drive</h3>
+                                <p>Austin, TX • Custom Home</p>
+                            </div>
+                        </div>
+                        <!-- Woodmont Avenue -->
+                        <div class="carousel-slide">
+                            <img src="Projects/06-woodmont-avenue/1.png" alt="Woodmont Avenue">
+                            <div class="carousel-info">
+                                <h3>Woodmont Avenue</h3>
+                                <p>Austin, TX • Under Construction</p>
+                            </div>
+                        </div>
+                        <!-- Bouldin Avenue -->
+                        <div class="carousel-slide">
+                            <img src="Projects/02-bouldin-avenue/1.jpg" alt="Bouldin Avenue">
+                            <div class="carousel-info">
+                                <h3>Bouldin Avenue</h3>
+                                <p>Austin, TX • Remodel & Addition</p>
+                            </div>
+                        </div>
+                        <!-- Rainbow Ranch -->
+                        <div class="carousel-slide">
+                            <img src="Projects/04-rainbow-ranch/1.jpg" alt="Rainbow Ranch">
+                            <div class="carousel-info">
+                                <h3>Rainbow Ranch</h3>
+                                <p>Hill Country • Estate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn" id="prevBtn">‹</button>
+                    <button class="carousel-btn" id="nextBtn">›</button>
+                </div>
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE SANCTUARY DIFFERENCE -->
+    <section class="section" style="background: var(--off-white);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">What Sets Us Apart</div>
+                <h2 class="section-title">The Sanctuary Difference</h2>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">☁️</div>
+                    <h3>Home Cloud™</h3>
+                    <p>Complete digital handover with all project data, drawings, and manuals accessible for life</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">★</div>
+                    <h3>5-Year Concierge Service</h3>
+                    <p>Dedicated support extending well beyond completion—your lifetime builder advocate</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">◆</div>
+                    <h3>Transparent Process</h3>
+                    <p>Real-time project tracking with clear budgets and schedules—no surprises</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">✓</div>
+                    <h3>Proven Excellence</h3>
+                    <p>30+ years combined experience with 90% referral rate from satisfied clients</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="section stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div>
+                    <div class="stat-number">60+</div>
+                    <div class="stat-label">Homes Delivered</div>
+                </div>
+                <div>
+                    <div class="stat-number">90%</div>
+                    <div class="stat-label">Referral Rate</div>
+                </div>
+                <div>
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div>
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">On-Time Delivery</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Sanctuary Custom Homes</h4>
+                    <p style="color: var(--gray); font-size: 15px; line-height: 1.7;">Luxury built on precision and quality. Serving Austin & the Texas Hill Country.</p>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <a href="tel:+15125551234">Phone: (512) 555-1234</a><br>
+                    <a href="mailto:info@sanctuaryhomesatx.com">info@sanctuaryhomesatx.com</a>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <a href="projects.html">Portfolio</a><br>
+                    <a href="about.html">About Us</a><br>
+                    <a href="methodology.html">Our Process</a><br>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Privacy Policy</a><br>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sanctuary Custom Homes. All rights reserved. TX Builder License #123456</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('open');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('open');
+            });
+        });
+
+        // Hero Carousel
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        let currentHeroSlide = 0;
+
+        function nextHeroSlide() {
+            heroSlides[currentHeroSlide].classList.remove('active');
+            currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+            heroSlides[currentHeroSlide].classList.add('active');
+        }
+
+        setInterval(nextHeroSlide, 5000);
+
+        // Project Carousel
+        const carousel = document.getElementById('projectCarousel');
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        const dotsContainer = document.getElementById('carouselDots');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        let currentSlide = 0;
+
+        // Create dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('carousel-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            // Update dots
+            document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+
+        // Auto-advance carousel
+        setInterval(nextSlide, 6000);
+    </script>
+
+</body>
+</html>

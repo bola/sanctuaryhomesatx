@@ -1,0 +1,174 @@
+/**
+ * Sanctuary Custom Homes - Design System Variables
+ * Color palette, typography, spacing, and breakpoints
+ */
+
+:root {
+  /* ===== COLOR PALETTE ===== */
+
+  /* Primary Colors */
+  --color-charcoal: #2B2B2B;
+  --color-white: #F8F6F2;
+  --color-sand: #E9E4DC;
+  --color-sage: #6F7E6A;
+  --color-copper: #B87333;
+
+  /* Semantic Colors */
+  --color-primary: var(--color-charcoal);
+  --color-background: var(--color-white);
+  --color-surface: var(--color-sand);
+  --color-accent: var(--color-sage);
+  --color-cta: var(--color-copper);
+
+  /* Text Colors */
+  --color-text-primary: var(--color-charcoal);
+  --color-text-secondary: #666666;
+  --color-text-light: #999999;
+  --color-text-inverse: var(--color-white);
+
+  /* State Colors */
+  --color-success: #4CAF50;
+  --color-error: #F44336;
+  --color-warning: #FF9800;
+  --color-info: var(--color-sage);
+
+  /* ===== TYPOGRAPHY ===== */
+
+  /* Font Families */
+  --font-heading: 'Playfair Display', 'Georgia', serif;
+  --font-body: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;     /* 12px */
+  --font-size-sm: 0.875rem;    /* 14px */
+  --font-size-base: 1rem;      /* 16px */
+  --font-size-lg: 1.125rem;    /* 18px */
+  --font-size-xl: 1.25rem;     /* 20px */
+  --font-size-2xl: 1.5rem;     /* 24px */
+  --font-size-3xl: 1.875rem;   /* 30px */
+  --font-size-4xl: 2.25rem;    /* 36px */
+  --font-size-5xl: 3rem;       /* 48px */
+  --font-size-6xl: 3.75rem;    /* 60px */
+  --font-size-7xl: 4.5rem;     /* 72px */
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  --line-height-loose: 2;
+
+  /* ===== SPACING ===== */
+
+  --spacing-xs: 0.5rem;    /* 8px */
+  --spacing-sm: 1rem;      /* 16px */
+  --spacing-md: 2rem;      /* 32px */
+  --spacing-lg: 4rem;      /* 64px */
+  --spacing-xl: 6rem;      /* 96px */
+  --spacing-2xl: 8rem;     /* 128px */
+  --spacing-3xl: 12rem;    /* 192px */
+
+  /* ===== LAYOUT ===== */
+
+  /* Container Widths */
+  --container-xs: 480px;
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1440px;
+  --container-max: 1920px;
+
+  /* Breakpoints (for reference in media queries) */
+  --bp-mobile: 360px;
+  --bp-tablet: 768px;
+  --bp-desktop: 1024px;
+  --bp-wide: 1280px;
+  --bp-ultra: 1920px;
+
+  /* ===== BORDERS ===== */
+
+  --border-width-thin: 1px;
+  --border-width-medium: 2px;
+  --border-width-thick: 4px;
+
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+  --border-radius-full: 9999px;
+
+  /* ===== SHADOWS ===== */
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* ===== TRANSITIONS ===== */
+
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+
+  --easing-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --easing-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --easing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ===== Z-INDEX LAYERS ===== */
+
+  --z-base: 0;
+  --z-dropdown: 1000;
+  --z-sticky: 1100;
+  --z-fixed: 1200;
+  --z-modal-backdrop: 1300;
+  --z-modal: 1400;
+  --z-popover: 1500;
+  --z-tooltip: 1600;
+
+  /* ===== HEADER ===== */
+
+  --header-height: 80px;
+  --header-height-mobile: 64px;
+
+  /* ===== GRID ===== */
+
+  --grid-columns: 12;
+  --grid-gap: var(--spacing-md);
+  --grid-gap-mobile: var(--spacing-sm);
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+
+/* Tablet and above */
+@media (min-width: 768px) {
+  :root {
+    --font-size-5xl: 3.5rem;   /* 56px */
+    --font-size-6xl: 4.5rem;   /* 72px */
+    --font-size-7xl: 6rem;     /* 96px */
+  }
+}
+
+/* Desktop and above */
+@media (min-width: 1024px) {
+  :root {
+    --spacing-lg: 5rem;      /* 80px */
+    --spacing-xl: 8rem;      /* 128px */
+    --spacing-2xl: 10rem;    /* 160px */
+    --spacing-3xl: 15rem;    /* 240px */
+  }
+}
+
+/* Wide screens */
+@media (min-width: 1920px) {
+  :root {
+    --container-max: 2000px;
+  }
+}

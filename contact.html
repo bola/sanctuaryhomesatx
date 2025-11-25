@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Sanctuary Custom Homes to discuss your custom home project in Austin or the Texas Hill Country. Schedule a consultation today.">
+
+    <title>Contact Us | Sanctuary Custom Homes</title>
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">Sanctuary</a>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="projects.html" class="nav-link">Featured Projects</a></li>
+                    <li><a href="methodology.html" class="nav-link">Our Methodology</a></li>
+                    <li><a href="difference.html" class="nav-link">Sanctuary Difference</a></li>
+                    <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
+                    <li><a href="contact.html" class="btn btn-primary btn-sm active">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <ul class="mobile-nav-list">
+            <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="projects.html" class="mobile-nav-link">Featured Projects</a></li>
+            <li><a href="methodology.html" class="mobile-nav-link">Our Methodology</a></li>
+            <li><a href="difference.html" class="mobile-nav-link">Sanctuary Difference</a></li>
+            <li><a href="testimonials.html" class="mobile-nav-link">Testimonials</a></li>
+            <li><a href="contact.html" class="mobile-nav-link">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <!-- PAGE HERO -->
+    <section class="section-lg bg-sand" style="margin-top: 0;">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Get in Touch</p>
+                <h1 class="section-title">Let's Build Your Dream Home</h1>
+                <p class="section-description lead">Ready to start your custom home journey? Contact us to schedule a consultation and discuss your vision.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT OPTIONS -->
+    <section class="section bg-white">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-lg text-center">
+
+                <!-- Phone -->
+                <div class="card card-elevated p-lg">
+                    <div class="mb-sm">
+                        <span class="text-copper" style="font-size: 2.5rem;">📞</span>
+                    </div>
+                    <h3 class="h5 mb-xs">Call Us</h3>
+                    <p class="text-secondary small mb-sm">Speak directly with our team</p>
+                    <a href="tel:+15125551234" class="btn btn-text text-copper font-semibold">(512) 555-1234</a>
+                </div>
+
+                <!-- Email -->
+                <div class="card card-elevated p-lg">
+                    <div class="mb-sm">
+                        <span class="text-copper" style="font-size: 2.5rem;">✉️</span>
+                    </div>
+                    <h3 class="h5 mb-xs">Email Us</h3>
+                    <p class="text-secondary small mb-sm">Send us your project details</p>
+                    <a href="mailto:info@sanctuaryhomesatx.com" class="btn btn-text text-copper font-semibold">info@sanctuaryhomesatx.com</a>
+                </div>
+
+                <!-- Schedule -->
+                <div class="card card-elevated p-lg">
+                    <div class="mb-sm">
+                        <span class="text-copper" style="font-size: 2.5rem;">📅</span>
+                    </div>
+                    <h3 class="h5 mb-xs">Schedule a Meeting</h3>
+                    <p class="text-secondary small mb-sm">Book a consultation online</p>
+                    <a href="#calendly" class="btn btn-text text-copper font-semibold">View Availability</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM & INFO -->
+    <section class="section-lg bg-sand">
+        <div class="container">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-xl">
+
+                <!-- Contact Form -->
+                <div>
+                    <h2 class="h3 mb-md">Send Us a Message</h2>
+                    <p class="text-secondary mb-lg">Fill out the form below and we'll get back to you within 24 hours.</p>
+
+                    <form class="form" data-validate id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name *</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="projectType" class="form-label">Project Type *</label>
+                            <select id="projectType" name="projectType" class="form-input" required>
+                                <option value="">Select a project type</option>
+                                <option value="custom-home">Custom Home</option>
+                                <option value="remodel">Remodel & Addition</option>
+                                <option value="consultation">General Consultation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location" class="form-label">Project Location</label>
+                            <input type="text" id="location" name="location" class="form-input" placeholder="Austin, Hill Country, etc.">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="timeline" class="form-label">Desired Timeline</label>
+                            <select id="timeline" name="timeline" class="form-input">
+                                <option value="">Select a timeline</option>
+                                <option value="immediate">Ready to Start (0-3 months)</option>
+                                <option value="soon">Starting Soon (3-6 months)</option>
+                                <option value="planning">Planning Phase (6-12 months)</option>
+                                <option value="exploring">Just Exploring (12+ months)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="budget" class="form-label">Estimated Budget Range</label>
+                            <select id="budget" name="budget" class="form-input">
+                                <option value="">Select a budget range</option>
+                                <option value="500k-1m">$500K - $1M</option>
+                                <option value="1m-2m">$1M - $2M</option>
+                                <option value="2m-3m">$2M - $3M</option>
+                                <option value="3m+">$3M+</option>
+                                <option value="undecided">Not Sure Yet</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Tell Us About Your Project *</label>
+                            <textarea id="message" name="message" class="form-input" rows="6" required placeholder="Describe your vision, goals, or any questions you have..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="flex items-start gap-xs">
+                                <input type="checkbox" name="newsletter" id="newsletter">
+                                <span class="small text-secondary">I'd like to receive updates and insights from Sanctuary Custom Homes</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg w-full">Submit Inquiry</button>
+
+                        <p class="tiny text-secondary mt-sm">By submitting this form, you agree to our <a href="privacy.html" class="text-copper">Privacy Policy</a> and <a href="terms.html" class="text-copper">Terms of Service</a>.</p>
+                    </form>
+                </div>
+
+                <!-- Company Info -->
+                <div>
+                    <h2 class="h3 mb-md">Sanctuary Custom Homes</h2>
+
+                    <div class="mb-lg">
+                        <h3 class="h5 mb-sm text-copper">Office Location</h3>
+                        <p class="text-secondary">Austin, Texas<br>
+                        Serving Austin & the Texas Hill Country</p>
+                    </div>
+
+                    <div class="mb-lg">
+                        <h3 class="h5 mb-sm text-copper">Contact Information</h3>
+                        <p class="text-secondary mb-xs">
+                            <strong>Phone:</strong> <a href="tel:+15125551234">(512) 555-1234</a>
+                        </p>
+                        <p class="text-secondary mb-xs">
+                            <strong>Email:</strong> <a href="mailto:info@sanctuaryhomesatx.com">info@sanctuaryhomesatx.com</a>
+                        </p>
+                    </div>
+
+                    <div class="mb-lg">
+                        <h3 class="h5 mb-sm text-copper">Business Hours</h3>
+                        <p class="text-secondary">
+                            Monday - Friday: 8:00 AM - 6:00 PM<br>
+                            Saturday: By Appointment<br>
+                            Sunday: Closed
+                        </p>
+                    </div>
+
+                    <div class="mb-lg">
+                        <h3 class="h5 mb-sm text-copper">What to Expect</h3>
+                        <ul class="text-secondary small">
+                            <li>Response within 24 hours</li>
+                            <li>Initial consultation (30-60 minutes)</li>
+                            <li>Project assessment and budget validation</li>
+                            <li>Detailed proposal and timeline</li>
+                            <li>No obligation to proceed</li>
+                        </ul>
+                    </div>
+
+                    <div class="card bg-charcoal p-lg">
+                        <h3 class="h5 mb-sm text-copper">Why Choose Sanctuary?</h3>
+                        <ul class="text-inverse small">
+                            <li>60+ homes delivered with precision</li>
+                            <li>90% referral rate from satisfied clients</li>
+                            <li>5-year concierge service included</li>
+                            <li>Home Cloud™ digital handover</li>
+                            <li>Transparent budgeting and scheduling</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CALENDLY INTEGRATION -->
+    <section class="section-lg bg-white" id="calendly">
+        <div class="container max-w-2xl text-center">
+            <h2 class="h2 mb-sm">Schedule a Consultation</h2>
+            <p class="lead mb-lg text-secondary">Prefer to book time directly? Use our scheduling tool to find a time that works for you.</p>
+
+            <!-- CALENDLY EMBED PLACEHOLDER -->
+            <div class="card p-lg">
+                <div class="bg-sand p-xl rounded">
+                    <p class="text-secondary mb-md">
+                        <span style="font-size: 3rem;">📅</span>
+                    </p>
+                    <p class="text-secondary mb-sm">Calendly Integration Area</p>
+                    <p class="small text-secondary mb-md">This is where the Calendly booking widget will be embedded. The Calendly embed code should be added here once the account is set up.</p>
+                    <a href="#" class="btn btn-primary">Book a Time (Calendly Link)</a>
+                    <p class="tiny text-secondary mt-md">Note: Replace this placeholder with actual Calendly embed code</p>
+                </div>
+            </div>
+
+            <!--
+            INSTRUCTIONS FOR CALENDLY INTEGRATION:
+
+            1. Sign up for Calendly at https://calendly.com
+            2. Create an event type (e.g., "Initial Consultation - 60 min")
+            3. Get the embed code from Calendly
+            4. Replace the placeholder div above with:
+
+            <div class="calendly-inline-widget" data-url="YOUR_CALENDLY_URL" style="min-width:320px;height:700px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            -->
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="section-lg bg-sand">
+        <div class="container max-w-2xl">
+            <h2 class="h2 mb-lg text-center">Frequently Asked Questions</h2>
+
+            <div class="grid grid-cols-1 gap-md">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="h5 mb-xs text-copper">What's the first step?</h3>
+                        <p class="text-secondary small">Contact us to schedule an initial consultation. We'll discuss your vision, timeline, and budget to determine if we're a good fit for your project.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="h5 mb-xs text-copper">Do you work with clients' architects?</h3>
+                        <p class="text-secondary small">Absolutely. We work with your architect or can recommend trusted partners from our network of Austin's leading architectural firms.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="h5 mb-xs text-copper">What's your service area?</h3>
+                        <p class="text-secondary small">We primarily serve Austin and the Texas Hill Country, including Westlake, Tarrytown, Dripping Springs, Wimberley, and surrounding areas.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="h5 mb-xs text-copper">How long does a custom home build take?</h3>
+                        <p class="text-secondary small">Typical timelines range from 12-18 months from permit approval to completion, depending on size and complexity. We provide detailed schedules during preconstruction.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="h5 mb-xs text-copper">What makes Sanctuary different?</h3>
+                        <p class="text-secondary small">Our 5-year concierge service, Home Cloud™ digital handover, and commitment to long-term client relationships set us apart. We're not just building homes—we're building lasting partnerships.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sanctuary Custom Homes</h3>
+                    <p class="footer-link">Luxury Built on Precision and Quality</p>
+                    <p class="footer-link">Austin & Texas Hill Country</p>
+                    <p class="footer-link mt-sm">
+                        <a href="tel:+15125551234">Phone: (512) 555-1234</a><br>
+                        <a href="mailto:info@sanctuaryhomesatx.com">info@sanctuaryhomesatx.com</a>
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="projects.html" class="footer-link">Featured Projects</a>
+                    <a href="methodology.html" class="footer-link">Our Methodology</a>
+                    <a href="difference.html" class="footer-link">Sanctuary Difference</a>
+                    <a href="testimonials.html" class="footer-link">Testimonials</a>
+                    <a href="contact.html" class="footer-link">Contact Us</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Legal & Resources</h3>
+                    <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                    <a href="terms.html" class="footer-link">Terms of Service</a>
+                    <p class="footer-link mt-md">TX Builder License #123456</p>
+                    <p class="footer-link">Bonded & Insured</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span class="current-year">2024</span> Sanctuary Custom Homes. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook">Facebook</a>
+                    <a href="#" aria-label="Instagram">Instagram</a>
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+
+</body>
+</html>
