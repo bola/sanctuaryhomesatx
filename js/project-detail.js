@@ -11,9 +11,9 @@ const projects = {
     type: 'Custom Home',
     year: '2023',
     description: 'A stunning custom home showcasing modern architecture and meticulous craftsmanship. This project exemplifies our commitment to precision and quality in every detail.',
-    architect: 'JBA Architecture (Jon Butler)',
-    interior: 'Jameson Design',
-    photography: 'Amy Dang Photography',
+    architect: 'Jameson Design Group',
+    interior: null,
+    photography: 'Urban Oak Photography',
     builder: 'Sanctuary Custom Homes',
     images: [
       'Projects/05-superview-drive/superview-drive-01.jpg',
@@ -29,7 +29,7 @@ const projects = {
     type: 'Under Construction',
     year: '2024',
     description: 'A modern custom home currently under construction, demonstrating our structured methodology and precision in execution.',
-    architect: 'Point B Design',
+    architect: 'Side Angle Side',
     interior: null,
     photography: null,
     builder: 'Sanctuary Custom Homes',
@@ -50,10 +50,10 @@ const projects = {
     type: 'Remodel & Addition',
     year: '2022',
     description: 'A comprehensive remodel and addition that seamlessly blends new construction with the existing structure, showcasing our expertise in complex renovation projects.',
-    architect: 'Side Angle Side',
-    interior: 'Jameson Design',
-    photography: 'Leonid Furmansky',
-    builder: 'Gasparini Custom Homes',
+    architect: 'JBA Architecture',
+    interior: 'WRJ Design',
+    photography: 'Amy Dang Photography',
+    builder: 'Nick Chappell with Gasparini Custom Homes (legacy)',
     images: [
       'Projects/02-bouldin-avenue/1.jpg',
       'Projects/02-bouldin-avenue/2.jpg',
@@ -72,10 +72,10 @@ const projects = {
     type: 'Custom Home',
     year: '2021',
     description: 'An elegant custom home in one of Austin\'s most prestigious neighborhoods, featuring timeless design and exceptional attention to detail.',
-    architect: 'JBA Architecture (Jon Butler)',
+    architect: 'JBA Architecture',
     interior: 'WRJ Design',
     photography: 'Amy Dang Photography',
-    builder: 'Gasparini Custom Homes',
+    builder: 'Nick Chappell with Gasparini Custom Homes (legacy)',
     images: [
       'Projects/01-sylvan-drive/1717sylvanave173426.jpg',
       'Projects/01-sylvan-drive/1717sylvanave173427.jpg',
@@ -92,10 +92,10 @@ const projects = {
     type: 'Hill Country Estate',
     year: '2022',
     description: 'A breathtaking Hill Country estate that harmonizes with the natural landscape while providing luxurious modern living.',
-    architect: 'Webber + Studio',
-    interior: 'slic design',
-    photography: 'Leonid Furmansky',
-    builder: 'Gasparini Custom Homes',
+    architect: 'NHA Architecture',
+    interior: 'WRJ Design',
+    photography: null,
+    builder: 'Sanctuary Custom Homes',
     images: [
       'Projects/04-rainbow-ranch/1.jpg',
       'Projects/04-rainbow-ranch/2.jpg',
@@ -110,8 +110,8 @@ const projects = {
     type: 'Custom Home',
     year: '2023',
     description: 'A contemporary custom home showcasing innovative design and superior craftsmanship throughout.',
-    architect: 'TBD',
-    interior: null,
+    architect: 'JBA Architecture',
+    interior: 'slic design',
     photography: null,
     builder: 'Sanctuary Custom Homes',
     images: [
@@ -141,10 +141,10 @@ const projects = {
     type: 'Custom Home',
     year: '2022',
     description: 'A beautifully crafted custom home featuring clean lines and sophisticated finishes.',
-    architect: 'Tornbjerg Design (Thomas Tornbjerg)',
-    interior: 'slic design',
-    photography: 'Leonid Furmansky',
-    builder: 'Gasparini Custom Homes',
+    architect: 'Point B Design Group',
+    interior: 'WRJ Design',
+    photography: null,
+    builder: 'Nick Chappell with Gasparini Custom Homes (legacy)',
     images: [
       'Projects/07-clawson-drive/1.jpg',
       'Projects/07-clawson-drive/2.jpg',
@@ -161,13 +161,25 @@ const projects = {
     type: 'Custom Home',
     year: '2021',
     description: 'A refined custom home showcasing architectural excellence and quality construction.',
-    architect: 'NHA (Nathan Harwell)',
+    architect: 'JBA Architecture',
+    interior: null,
+    photography: 'Amy Dang Photography',
+    builder: 'Nick Chappell with Gasparini Custom Homes (legacy)',
+    images: [
+      'Projects/03-kinney-avenue/1.png'
+    ]
+  },
+  'lorrain-street': {
+    title: 'Lorrain Street',
+    location: 'Austin, TX',
+    type: 'Custom Home',
+    year: '2024',
+    description: 'A thoughtfully designed custom home currently in progress.',
+    architect: 'Texas Porch House Design Build',
     interior: null,
     photography: null,
-    builder: 'Gasparini Custom Homes',
-    images: [
-      'Projects/03-kinney-avenue/1.jpg'
-    ]
+    builder: 'Nick Chappell Design',
+    images: []
   }
 };
 
@@ -184,36 +196,37 @@ if (project) {
   // Populate header
   const headerEl = document.getElementById('projectHeader');
   headerEl.innerHTML = `
-    <h1 class="h1 mb-xs">${project.title}</h1>
-    <p class="lead text-secondary">${project.location} | ${project.type}</p>
+    <div class="section-label">Project</div>
+    <h1 class="section-title">${project.title}</h1>
+    <p class="section-description">${project.location} • ${project.type}</p>
   `;
 
   // Populate gallery
   const galleryEl = document.getElementById('projectGallery');
   galleryEl.innerHTML = project.images.map((img, index) => `
-    <div class="card cursor-pointer" data-image-index="${index}">
-      <img src="${img}" alt="${project.title} - Image ${index + 1}" class="w-full aspect-3-2 object-cover">
+    <div class="gallery-item" data-image-index="${index}">
+      <img src="${img}" alt="${project.title} - Image ${index + 1}">
     </div>
   `).join('');
 
   // Populate details
   const detailsEl = document.getElementById('projectDetails');
   detailsEl.innerHTML = `
-    <h2 class="h3 mb-md">About This Project</h2>
-    <p class="text-secondary mb-md">${project.description}</p>
-    <div class="grid grid-cols-2 gap-md">
-      <div>
-        <p class="small text-secondary"><strong>Location:</strong> ${project.location}</p>
-      </div>
-      <div>
-        <p class="small text-secondary"><strong>Type:</strong> ${project.type}</p>
-      </div>
-      <div>
-        <p class="small text-secondary"><strong>Year:</strong> ${project.year}</p>
-      </div>
-      <div>
-        <p class="small text-secondary"><strong>Images:</strong> ${project.images.length} photos</p>
-      </div>
+    <div class="detail-row">
+      <span class="detail-label">Location</span>
+      <span class="detail-value">${project.location}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Type</span>
+      <span class="detail-value">${project.type}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Year</span>
+      <span class="detail-value">${project.year}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Gallery</span>
+      <span class="detail-value">${project.images.length} photos</span>
     </div>
   `;
 
@@ -235,14 +248,13 @@ if (project) {
   const relatedEl = document.getElementById('relatedProjects');
   relatedEl.innerHTML = randomProjects.map(id => {
     const p = projects[id];
+    const imgSrc = p.images.length > 0 ? p.images[0] : '';
     return `
-      <a href="project-detail.html?project=${id}" class="project-card card">
-        <div class="image-wrapper">
-          <img src="${p.images[0]}" alt="${p.title}" class="w-full aspect-3-2 object-cover">
-          <div class="project-card-overlay">
-            <h3 class="project-card-title">${p.title}</h3>
-            <p class="project-card-subtitle">${p.type}</p>
-          </div>
+      <a href="project-detail.html?project=${id}" class="project-card">
+        ${imgSrc ? `<img src="${imgSrc}" alt="${p.title}">` : '<div style="aspect-ratio: 4/3; background: var(--light-gray); display: flex; align-items: center; justify-content: center; color: var(--gray);">Photos Coming Soon</div>'}
+        <div class="project-card-body">
+          <h3 class="project-card-title">${p.title}</h3>
+          <p class="project-card-location">${p.location} • ${p.type}</p>
         </div>
       </a>
     `;

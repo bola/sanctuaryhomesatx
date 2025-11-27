@@ -14,14 +14,16 @@
 /* ===== DESIGN TOKENS ===== */
 
 :root {
-    /* Colors - Clean and minimal */
+    /* Colors - Brand Palette */
     --white: #FFFFFF;
-    --off-white: #FAFAFA;
+    --off-white: #F8F6F2;          /* Warm White */
     --light-gray: #F5F5F5;
+    --sanctuary-sand: #E9E4DC;     /* Section backgrounds/cards */
+    --sage: #6F7E6A;               /* Hill Country Sage - accents, links */
     --gray: #9E9E9E;
     --dark-gray: #424242;
-    --charcoal: #2B2B2B;
-    --copper: #B87333;
+    --charcoal: #2B2B2B;           /* Cedar Charcoal */
+    --copper: #B87333;             /* Copper Accent */
     --copper-dark: #9A5E28;
 
     /* Typography */
