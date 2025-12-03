@@ -70,6 +70,76 @@
         .comparison-table td:nth-child(3) {
             color: var(--gray);
         }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .feature-large {
+                padding: var(--space-lg);
+            }
+
+            .feature-large h2 {
+                font-size: 1.75rem !important;
+            }
+
+            .feature-large h3 {
+                font-size: 1.2rem !important;
+                margin-bottom: var(--space-md) !important;
+            }
+
+            .feature-icon {
+                font-size: 2.5rem;
+            }
+
+            /* Stack the grid on mobile */
+            .feature-large .grid-2 {
+                grid-template-columns: 1fr !important;
+                gap: var(--space-sm) !important;
+            }
+
+            /* Comparison table mobile styles */
+            .comparison-table {
+                font-size: 14px;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: var(--space-sm);
+            }
+
+            .comparison-table th:first-child,
+            .comparison-table td:first-child {
+                min-width: 100px;
+            }
+
+            /* Blockquote mobile */
+            blockquote {
+                padding-left: var(--space-md) !important;
+            }
+
+            blockquote p {
+                font-size: 17px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .feature-large {
+                padding: var(--space-md);
+            }
+
+            .feature-large h2 {
+                font-size: 1.5rem !important;
+            }
+
+            /* Make table scrollable on very small screens */
+            .comparison-table-wrapper {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .comparison-table {
+                min-width: 400px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -190,47 +260,49 @@
         <div class="container" style="max-width: 900px;">
             <h2 class="text-center mb-xl">How We Compare</h2>
 
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th class="text-center">Sanctuary</th>
-                        <th class="text-center">Typical Builder</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Post-Sale Support</strong></td>
-                        <td class="text-center">5+ Years</td>
-                        <td class="text-center">1 Year</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Digital Handover</strong></td>
-                        <td class="text-center">Home Cloud™</td>
-                        <td class="text-center">Paper Binder</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Warranty Management</strong></td>
-                        <td class="text-center">We Coordinate</td>
-                        <td class="text-center">DIY</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Project Tracking</strong></td>
-                        <td class="text-center">Real-Time Portal</td>
-                        <td class="text-center">Weekly Emails</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Budget Transparency</strong></td>
-                        <td class="text-center">Line-Item Detail</td>
-                        <td class="text-center">Lump Sum</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Communication</strong></td>
-                        <td class="text-center">Dedicated Contact</td>
-                        <td class="text-center">Call When Needed</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="text-center">Sanctuary</th>
+                            <th class="text-center">Typical Builder</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Post-Sale Support</strong></td>
+                            <td class="text-center">5+ Years</td>
+                            <td class="text-center">1 Year</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Digital Handover</strong></td>
+                            <td class="text-center">Home Cloud™</td>
+                            <td class="text-center">Paper Binder</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Warranty Management</strong></td>
+                            <td class="text-center">We Coordinate</td>
+                            <td class="text-center">DIY</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Project Tracking</strong></td>
+                            <td class="text-center">Real-Time Portal</td>
+                            <td class="text-center">Weekly Emails</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Budget Transparency</strong></td>
+                            <td class="text-center">Line-Item Detail</td>
+                            <td class="text-center">Lump Sum</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Communication</strong></td>
+                            <td class="text-center">Dedicated Contact</td>
+                            <td class="text-center">Call When Needed</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
 
