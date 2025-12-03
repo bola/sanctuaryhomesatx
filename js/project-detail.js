@@ -169,18 +169,6 @@ const projects = {
       'Projects/03-kinney-avenue/1.png'
     ]
   },
-  'lorrain-street': {
-    title: 'Lorrain Street',
-    location: 'Austin, TX',
-    type: 'Custom Home',
-    year: '2024',
-    description: 'A thoughtfully designed custom home currently in progress.',
-    architect: 'Texas Porch House Design Build',
-    interior: null,
-    photography: null,
-    builder: 'Nick Chappell Design',
-    images: []
-  }
 };
 
 // ===== GET PROJECT FROM URL =====
