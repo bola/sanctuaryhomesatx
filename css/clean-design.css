@@ -30,15 +30,15 @@
     --font-heading: 'Playfair Display', Georgia, serif;
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
-    /* Spacing - Generous */
+    /* Spacing - Balanced */
     --space-unit: 1rem;
     --space-xs: calc(var(--space-unit) * 0.5);
     --space-sm: var(--space-unit);
-    --space-md: calc(var(--space-unit) * 2);
-    --space-lg: calc(var(--space-unit) * 4);
-    --space-xl: calc(var(--space-unit) * 6);
-    --space-2xl: calc(var(--space-unit) * 8);
-    --space-3xl: calc(var(--space-unit) * 10);
+    --space-md: calc(var(--space-unit) * 1.5);
+    --space-lg: calc(var(--space-unit) * 2.5);
+    --space-xl: calc(var(--space-unit) * 4);
+    --space-2xl: calc(var(--space-unit) * 5);
+    --space-3xl: calc(var(--space-unit) * 6);
 
     /* Layout */
     --max-width: 1400px;
@@ -112,17 +112,18 @@ a {
 
 .logo {
     font-family: var(--font-heading);
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: var(--charcoal);
     text-decoration: none;
     letter-spacing: -0.02em;
+    white-space: nowrap;
 }
 
 .nav {
     display: flex;
     align-items: center;
-    gap: var(--space-lg);
+    gap: var(--space-md);
 }
 
 .nav a {
@@ -309,7 +310,7 @@ a {
 .section-header {
     text-align: center;
     max-width: 700px;
-    margin: 0 auto var(--space-xl);
+    margin: 0 auto var(--space-lg);
 }
 
 .section-label {

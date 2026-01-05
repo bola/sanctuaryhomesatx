@@ -3,6 +3,19 @@
  * Loads header and footer components and manages navigation state
  */
 
+// Google Analytics 4
+(function() {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-376747041';
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-376747041');
+})();
+
 // Load header and footer components
 async function loadComponents() {
     try {
