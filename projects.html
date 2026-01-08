@@ -97,31 +97,26 @@
             transform: scale(1.05);
         }
 
-        .project-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: var(--space-lg);
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            color: var(--white);
+        .project-info {
+            padding: var(--space-md);
         }
 
         .project-title {
             font-family: var(--font-heading);
             font-size: 1.5rem;
-            font-weight: 400;
+            font-weight: 600;
             margin-bottom: 0.25rem;
-            color: #FFFFFF;
+            color: var(--charcoal);
         }
 
         .project-meta {
             font-size: 14px;
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--gray);
+            margin-bottom: var(--space-sm);
         }
 
         .project-details {
-            padding: var(--space-lg);
+            padding: 0 var(--space-md) var(--space-md);
         }
 
         .project-credits {
@@ -189,7 +184,7 @@
     <section class="section-sm bg-white">
         <div class="container">
             <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn active" data-filter="all">Featured Projects</button>
                 <button class="filter-btn" data-filter="custom">Custom Homes</button>
                 <button class="filter-btn" data-filter="remodel">Remodels</button>
                 <button class="filter-btn" data-filter="construction">Under Construction</button>
@@ -206,14 +201,15 @@
                 <a href="project-detail.html?project=superview-drive" class="project-card" data-category="custom">
                     <div class="project-image-wrapper">
                         <img src="Projects/05-superview-drive/superview-drive-01.jpg" alt="Superview Drive" class="project-image">
-                        <div class="project-overlay">
-                            <h3 class="project-title">Superview Drive</h3>
-                            <p class="project-meta">Austin, TX • Custom Home</p>
-                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Superview Drive</h3>
+                        <p class="project-meta">Austin, TX • Custom Home</p>
                     </div>
                     <div class="project-details">
                         <p class="project-credits">
-                            Jameson Design Group – Urban Oak Photography – Sanctuary Custom Homes
+                            Designer: Jameson Design Group<br>
+                            Photography: Urban Oak Photography
                         </p>
                     </div>
                 </a>
@@ -222,14 +218,14 @@
                 <a href="project-detail.html?project=woodmont-avenue" class="project-card" data-category="construction">
                     <div class="project-image-wrapper">
                         <img src="Projects/06-woodmont-avenue/1.png" alt="Woodmont Avenue" class="project-image">
-                        <div class="project-overlay">
-                            <h3 class="project-title">Woodmont Avenue</h3>
-                            <p class="project-meta">Austin, TX • Under Construction</p>
-                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Woodmont Avenue</h3>
+                        <p class="project-meta">Austin, TX • Under Construction</p>
                     </div>
                     <div class="project-details">
                         <p class="project-credits">
-                            Side Angle Side – Sanctuary Custom Homes
+                            Architect: Side Angle Side
                         </p>
                     </div>
                 </a>
@@ -238,14 +234,16 @@
                 <a href="project-detail.html?project=bouldin-avenue" class="project-card" data-category="custom">
                     <div class="project-image-wrapper">
                         <img src="Projects/02-bouldin-avenue/1.jpg" alt="Bouldin Avenue" class="project-image">
-                        <div class="project-overlay">
-                            <h3 class="project-title">Bouldin Avenue</h3>
-                            <p class="project-meta">Austin, TX • Developer Spec Home</p>
-                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Bouldin Avenue</h3>
+                        <p class="project-meta">Austin, TX • Developer Spec Home</p>
                     </div>
                     <div class="project-details">
                         <p class="project-credits">
-                            JBA Architecture – WRJ Design – Amy Dang Photography – Nick Chappell with Gasparini Custom Homes (legacy)
+                            Architect: JBA Architecture<br>
+                            Interior Design: WRJ Design<br>
+                            Photography: Amy Dang Photography
                         </p>
                     </div>
                 </a>
@@ -254,14 +252,16 @@
                 <a href="project-detail.html?project=sylvan-drive" class="project-card" data-category="custom">
                     <div class="project-image-wrapper">
                         <img src="Projects/01-sylvan-drive/1717sylvanave173426.jpg" alt="Sylvan Drive" class="project-image">
-                        <div class="project-overlay">
-                            <h3 class="project-title">Sylvan Drive</h3>
-                            <p class="project-meta">Austin, TX • Custom Home</p>
-                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Sylvan Drive</h3>
+                        <p class="project-meta">Austin, TX • Custom Home</p>
                     </div>
                     <div class="project-details">
                         <p class="project-credits">
-                            JBA Architecture – WRJ Design – Amy Dang Photography – Nick Chappell with Gasparini Custom Homes (legacy)
+                            Architect: JBA Architecture<br>
+                            Interior Design: WRJ Design<br>
+                            Photography: Amy Dang Photography
                         </p>
                     </div>
                 </a>
@@ -270,14 +270,15 @@
                 <a href="project-detail.html?project=rainbow-ranch" class="project-card" data-category="remodel">
                     <div class="project-image-wrapper">
                         <img src="Projects/04-rainbow-ranch/3.jpg" alt="Rainbow Ranch" class="project-image">
-                        <div class="project-overlay">
-                            <h3 class="project-title">Rainbow Ranch</h3>
-                            <p class="project-meta">Hill Country • Remodel</p>
-                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Rainbow Ranch</h3>
+                        <p class="project-meta">Hill Country • Remodel</p>
                     </div>
                     <div class="project-details">
                         <p class="project-credits">
-                            NHA Architecture – WRJ Design – Sanctuary Custom Homes
+                            Architect: NHA Architecture<br>
+                            Interior Design: WRJ Design
                         </p>
                     </div>
                 </a>
@@ -286,14 +287,15 @@
                 <a href="project-detail.html?project=bellaire-drive" class="project-card" data-category="custom">
                     <div class="project-image-wrapper">
                         <img src="Projects/08-bellaire-drive/10a.jpg" alt="Bellaire Drive" class="project-image">
-                        <div class="project-overlay">
-                            <h3 class="project-title">Bellaire Drive</h3>
-                            <p class="project-meta">Austin, TX • Spec Home</p>
-                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Bellaire Drive</h3>
+                        <p class="project-meta">Austin, TX • Spec Home</p>
                     </div>
                     <div class="project-details">
                         <p class="project-credits">
-                            JBA Architecture – slic design – Sanctuary Custom Homes
+                            Architect: JBA Architecture<br>
+                            Interior Design: slic design
                         </p>
                     </div>
                 </a>
@@ -302,14 +304,15 @@
                 <a href="project-detail.html?project=clawson-drive" class="project-card" data-category="custom">
                     <div class="project-image-wrapper">
                         <img src="Projects/07-clawson-drive/1.jpg" alt="Clawson Drive" class="project-image">
-                        <div class="project-overlay">
-                            <h3 class="project-title">Clawson Drive</h3>
-                            <p class="project-meta">Austin, TX • Custom Home</p>
-                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Clawson Drive</h3>
+                        <p class="project-meta">Austin, TX • Custom Home</p>
                     </div>
                     <div class="project-details">
                         <p class="project-credits">
-                            Point B Design Group – WRJ Design – Nick Chappell with Gasparini Custom Homes (legacy)
+                            Architect: Point B Design Group<br>
+                            Interior Design: WRJ Design
                         </p>
                     </div>
                 </a>
@@ -318,14 +321,15 @@
                 <a href="project-detail.html?project=kinney-avenue" class="project-card" data-category="remodel">
                     <div class="project-image-wrapper">
                         <img src="Projects/03-kinney-avenue/1.png" alt="Kinney Avenue" class="project-image">
-                        <div class="project-overlay">
-                            <h3 class="project-title">Kinney Avenue</h3>
-                            <p class="project-meta">Austin, TX • Remodel & Addition</p>
-                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Kinney Avenue</h3>
+                        <p class="project-meta">Austin, TX • Remodel & Addition</p>
                     </div>
                     <div class="project-details">
                         <p class="project-credits">
-                            JBA Architecture – Amy Dang Photography – Nick Chappell with Gasparini Custom Homes (legacy)
+                            Architect: JBA Architecture<br>
+                            Photography: Amy Dang Photography
                         </p>
                     </div>
                 </a>
