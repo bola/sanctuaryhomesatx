@@ -20,7 +20,29 @@ const projects = {
       'Projects/05-superview-drive/superview-drive-02.jpg',
       'Projects/05-superview-drive/superview-drive-03.jpg',
       'Projects/05-superview-drive/superview-drive-04.jpg',
-      'Projects/05-superview-drive/superview-drive-05.jpg'
+      'Projects/05-superview-drive/superview-drive-05.jpg',
+      'Projects/05-superview-drive/10515 Superview Dr .jpg'
+    ]
+  },
+  'meridian-house': {
+    title: 'Meridian House',
+    location: 'Austin, TX',
+    type: 'Custom Home',
+    year: '2018',
+    description: 'An exquisite custom home featuring thoughtful architecture and sophisticated interior design, captured beautifully by acclaimed photographer Leonid Furmansky.',
+    architect: 'Jen Brannon Architecture and Interior Design',
+    interior: 'Jen Brannon Architecture and Interior Design',
+    photography: 'Leonid Furmansky',
+    builder: 'Sanctuary Custom Homes',
+    images: [
+      'Projects/Meridian-house/Leonid_Furmansky_Jen_Brannon_Print_ 4.jpg',
+      'Projects/Meridian-house/Leonid_Furmansky_Jen_Brannon_Print_ 5.jpg',
+      'Projects/Meridian-house/Leonid_Furmansky_Jen_Brannon_Print_ 7.jpg',
+      'Projects/Meridian-house/Leonid_Furmansky_Jen_Brannon_Print_ 9.jpg',
+      'Projects/Meridian-house/Leonid_Furmansky_Jen_Brannon_Print_ 11.jpg',
+      'Projects/Meridian-house/Leonid_Furmansky_Jen_Brannon_Print_ 17.jpg',
+      'Projects/Meridian-house/Leonid_Furmansky_Jen_Brannon_Print_ 19.jpg',
+      'Projects/Meridian-house/Leonid_Furmansky_Jen_Brannon_Print_ 20.jpg'
     ]
   },
   'woodmont-avenue': {
@@ -77,19 +99,24 @@ const projects = {
     photography: 'Amy Dang Photography',
     builder: 'Nick Chappell with Gasparini Custom Homes (legacy)',
     images: [
-      'Projects/01-sylvan-drive/1717sylvanave173426.jpg',
-      'Projects/01-sylvan-drive/1717sylvanave173427.jpg',
-      'Projects/01-sylvan-drive/1717sylvanave173435.jpg',
-      'Projects/01-sylvan-drive/1717sylvanave173438.jpg',
-      'Projects/01-sylvan-drive/1717sylvanave173457.jpg',
-      'Projects/01-sylvan-drive/1717sylvanave173465.jpg',
-      'Projects/01-sylvan-drive/1717sylvanave173472.jpg'
+      'Projects/01-sylvan-drive/1717sylvanave173554.jpg',
+      'Projects/01-sylvan-drive/1717sylvanave173605.jpg',
+      'Projects/01-sylvan-drive/1717sylvanave175429.jpg',
+      'Projects/01-sylvan-drive/1717sylvanave175810.jpg',
+      'Projects/01-sylvan-drive/1717sylvanave180103.jpg',
+      'Projects/01-sylvan-drive/1717sylvanave180244.jpg',
+      'Projects/01-sylvan-drive/1717sylvanave180957.jpg',
+      'Projects/01-sylvan-drive/1717sylvanave181404.jpg',
+      'Projects/01-sylvan-drive/1717sylvanave181408.jpg',
+      'Projects/01-sylvan-drive/1717sylvanave182036.jpg',
+      'Projects/01-sylvan-drive/1717sylvanave183422.jpg',
+      'Projects/01-sylvan-drive/1717sylvanave184450.jpg'
     ]
   },
   'rainbow-ranch': {
     title: 'Rainbow Ranch',
     location: 'Texas Hill Country',
-    type: 'Remodel',
+    type: 'Custom Home',
     year: '2021',
     description: 'A breathtaking Hill Country estate that harmonizes with the natural landscape while providing luxurious modern living.',
     architect: 'NHA Architecture',
@@ -113,24 +140,16 @@ const projects = {
     photography: null,
     builder: 'Sanctuary Custom Homes',
     images: [
-      'Projects/08-bellaire-drive/10a.jpg',
-      'Projects/08-bellaire-drive/10b.jpg',
-      'Projects/08-bellaire-drive/10c.jpg',
-      'Projects/08-bellaire-drive/10d.jpg',
-      'Projects/08-bellaire-drive/10e.jpg',
-      'Projects/08-bellaire-drive/11.jpg',
-      'Projects/08-bellaire-drive/12.jpg',
-      'Projects/08-bellaire-drive/13.jpg',
-      'Projects/08-bellaire-drive/14.jpg',
-      'Projects/08-bellaire-drive/15.jpg',
-      'Projects/08-bellaire-drive/16.jpg',
-      'Projects/08-bellaire-drive/17.jpg',
-      'Projects/08-bellaire-drive/18.jpg',
-      'Projects/08-bellaire-drive/19.jpg',
-      'Projects/08-bellaire-drive/1a.jpg',
-      'Projects/08-bellaire-drive/1b.jpg',
-      'Projects/08-bellaire-drive/1c.jpg',
-      'Projects/08-bellaire-drive/1d.jpg'
+      'Projects/08-bellaire-drive/00_Front_IMG_9062.jpg',
+      'Projects/08-bellaire-drive/00_Front_IMG_9067.jpg',
+      'Projects/08-bellaire-drive/00_Front_IMG_9137.jpg',
+      'Projects/08-bellaire-drive/01_Living_Room_IMG_8487.jpg',
+      'Projects/08-bellaire-drive/01_Living_Room_IMG_8664.jpg',
+      'Projects/08-bellaire-drive/02_Kitchen_IMG_8760.jpg',
+      'Projects/08-bellaire-drive/02_Kitchen_IMG_8787.jpg',
+      'Projects/08-bellaire-drive/03_Dining_Room_IMG_8709.jpg',
+      'Projects/08-bellaire-drive/15_Backyard_IMG_8967.jpg',
+      'Projects/08-bellaire-drive/24.jpg'
     ]
   },
   'clawson-drive': {
@@ -164,7 +183,32 @@ const projects = {
     photography: 'Amy Dang Photography',
     builder: 'Nick Chappell with Gasparini Custom Homes (legacy)',
     images: [
-      'Projects/03-kinney-avenue/1.png'
+      'Projects/03-kinney-avenue/2104kinney185353.jpg',
+      'Projects/03-kinney-avenue/2104kinney185459.jpg',
+      'Projects/03-kinney-avenue/2104kinney185603.jpg',
+      'Projects/03-kinney-avenue/2104kinney185957.jpg',
+      'Projects/03-kinney-avenue/2104kinney191249.jpg',
+      'Projects/03-kinney-avenue/2104kinney192123.jpg',
+      'Projects/03-kinney-avenue/2104kinney192513.jpg',
+      'Projects/03-kinney-avenue/2104kinney193810.jpg',
+      'Projects/03-kinney-avenue/2104kinney193934.jpg'
+    ],
+    beforeAfter: [
+      {
+        before: 'Projects/03-kinney-avenue/Before - Exterior Front.jpg',
+        after: 'Projects/03-kinney-avenue/2104kinney185353.jpg',
+        label: 'Front Exterior'
+      },
+      {
+        before: 'Projects/03-kinney-avenue/Before - Exterior Front 2.jpg',
+        after: 'Projects/03-kinney-avenue/2104kinney185459.jpg',
+        label: 'Front View'
+      },
+      {
+        before: 'Projects/03-kinney-avenue/Before - Exterior Back.jpg',
+        after: 'Projects/03-kinney-avenue/2104kinney193934.jpg',
+        label: 'Back Exterior'
+      }
     ]
   },
 };
@@ -186,6 +230,37 @@ if (project) {
     <h1 class="section-title">${project.title}</h1>
     <p class="section-description">${project.location} • ${project.type}</p>
   `;
+
+  // Populate before/after section if available
+  if (project.beforeAfter && project.beforeAfter.length > 0) {
+    const beforeAfterSection = document.createElement('section');
+    beforeAfterSection.className = 'section bg-light';
+    beforeAfterSection.innerHTML = `
+      <div class="container">
+        <h2 class="text-center mb-xl">Before & After</h2>
+        <div class="before-after-grid">
+          ${project.beforeAfter.map(item => `
+            <div class="before-after-item">
+              <div class="before-after-label">${item.label}</div>
+              <div class="before-after-comparison">
+                <div class="before-image">
+                  <span class="image-label">Before</span>
+                  <img src="${item.before}" alt="Before - ${item.label}">
+                </div>
+                <div class="after-image">
+                  <span class="image-label">After</span>
+                  <img src="${item.after}" alt="After - ${item.label}">
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+    // Insert before the gallery section
+    const gallerySection = document.querySelector('#projectGallery').closest('section');
+    gallerySection.parentNode.insertBefore(beforeAfterSection, gallerySection);
+  }
 
   // Populate gallery
   const galleryEl = document.getElementById('projectGallery');
