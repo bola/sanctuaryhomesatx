@@ -100,11 +100,8 @@ const projects = {
     builder: 'Nick Chappell with Gasparini Custom Homes (legacy)',
     images: [
       'Projects/01-sylvan-drive/1717sylvanave173554.jpg',
-      'Projects/01-sylvan-drive/1717sylvanave173605.jpg',
-      'Projects/01-sylvan-drive/1717sylvanave175429.jpg',
       'Projects/01-sylvan-drive/1717sylvanave175810.jpg',
       'Projects/01-sylvan-drive/1717sylvanave180103.jpg',
-      'Projects/01-sylvan-drive/1717sylvanave180244.jpg',
       'Projects/01-sylvan-drive/1717sylvanave180957.jpg',
       'Projects/01-sylvan-drive/1717sylvanave181404.jpg',
       'Projects/01-sylvan-drive/1717sylvanave181408.jpg',
@@ -196,18 +193,42 @@ const projects = {
     beforeAfter: [
       {
         before: 'Projects/03-kinney-avenue/Before - Exterior Front.jpg',
-        after: 'Projects/03-kinney-avenue/2104kinney185353.jpg',
-        label: 'Front Exterior'
-      },
-      {
-        before: 'Projects/03-kinney-avenue/Before - Exterior Front 2.jpg',
-        after: 'Projects/03-kinney-avenue/2104kinney185459.jpg',
+        after: 'Projects/03-kinney-avenue/Front View After.jpg',
         label: 'Front View'
       },
       {
         before: 'Projects/03-kinney-avenue/Before - Exterior Back.jpg',
         after: 'Projects/03-kinney-avenue/2104kinney193934.jpg',
-        label: 'Back Exterior'
+        label: 'Back View'
+      }
+    ]
+  },
+  'elm-street': {
+    title: 'Elm Street',
+    location: 'Austin, TX',
+    type: 'Remodel - Under Construction',
+    year: '2025',
+    description: 'A comprehensive remodel project currently under construction. These before photos showcase the existing structure prior to renovation.',
+    architect: null,
+    interior: null,
+    photography: null,
+    builder: 'Sanctuary Custom Homes',
+    images: [],
+    beforeAfter: [
+      {
+        before: 'Projects/1000-Elm/Front View Before.jpg',
+        after: 'images/comingsoon.jpg',
+        label: 'Front View'
+      },
+      {
+        before: 'Projects/1000-Elm/Back View Before.jpg',
+        after: 'images/comingsoon.jpg',
+        label: 'Back View'
+      },
+      {
+        before: 'Projects/1000-Elm/Garage Apt Before.jpg',
+        after: 'images/comingsoon.jpg',
+        label: 'Garage Apt'
       }
     ]
   },
@@ -264,11 +285,34 @@ if (project) {
 
   // Populate gallery
   const galleryEl = document.getElementById('projectGallery');
-  galleryEl.innerHTML = project.images.map((img, index) => `
-    <div class="gallery-item" data-image-index="${index}">
-      <img src="${img}" alt="${project.title} - Image ${index + 1}">
-    </div>
-  `).join('');
+
+  // Handle projects with beforeImages (under construction with before photos only)
+  if (project.beforeImages && project.beforeImages.length > 0) {
+    let galleryHTML = '<h3 style="grid-column: 1/-1; text-align: center; font-family: var(--font-heading); margin-bottom: var(--space-md);">Before Photos</h3>';
+    galleryHTML += project.beforeImages.map((img, index) => `
+      <div class="gallery-item" data-image-index="${index}">
+        <img src="${img.src}" alt="${img.label}">
+        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 8px; text-align: center; font-size: 14px;">${img.label}</div>
+      </div>
+    `).join('');
+
+    if (project.afterComingSoon) {
+      galleryHTML += `
+        <div style="grid-column: 1/-1; text-align: center; padding: var(--space-xl); background: var(--off-white); border-radius: 4px; margin-top: var(--space-lg);">
+          <h3 style="font-family: var(--font-heading); color: var(--copper); margin-bottom: var(--space-sm);">After Photos</h3>
+          <p style="color: var(--gray); font-size: 18px;">Coming Soon...</p>
+        </div>
+      `;
+    }
+    galleryEl.innerHTML = galleryHTML;
+  } else {
+    // Regular gallery
+    galleryEl.innerHTML = project.images.map((img, index) => `
+      <div class="gallery-item" data-image-index="${index}">
+        <img src="${img}" alt="${project.title} - Image ${index + 1}">
+      </div>
+    `).join('');
+  }
 
   // Populate details
   const detailsEl = document.getElementById('projectDetails');
@@ -287,7 +331,7 @@ if (project) {
     </div>
     <div class="detail-row">
       <span class="detail-label">Gallery</span>
-      <span class="detail-value">${project.images.length} photos</span>
+      <span class="detail-value">${project.beforeImages ? project.beforeImages.length + ' before photos' : project.images.length + ' photos'}${project.afterComingSoon ? ' (after coming soon)' : ''}</span>
     </div>
   `;
 
