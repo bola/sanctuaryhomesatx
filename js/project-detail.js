@@ -198,7 +198,7 @@ const projects = {
       },
       {
         before: 'Projects/03-kinney-avenue/Before - Exterior Back.jpg',
-        after: 'Projects/03-kinney-avenue/2104kinney193934.jpg',
+        after: 'Projects/03-kinney-avenue/2104kinney194459.jpg',
         label: 'Back View'
       }
     ]
