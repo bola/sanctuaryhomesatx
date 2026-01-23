@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benue State Infrastructure Dashboard</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0f1419;
+            --bg-secondary: #1a1f2e;
+            --bg-tertiary: #242b3d;
+            --bg-card: #1e2533;
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --text-muted: #6b7280;
+            --border-color: #2d3748;
+            --accent-blue: #3b82f6;
+            --status-green: #10b981;
+            --status-yellow: #f59e0b;
+            --status-red: #ef4444;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-color);
+            height: 70px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--status-green), var(--accent-blue));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .header-title h1 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .header-title p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .header-stats {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            padding: 0.75rem 1.25rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .stat-card .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .stat-card .label {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-card.green .value { color: var(--status-green); }
+        .stat-card.yellow .value { color: var(--status-yellow); }
+        .stat-card.red .value { color: var(--status-red); }
+
+        /* Main Container */
+        .main-container {
+            display: flex;
+            height: calc(100vh - 70px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 380px;
+            background: var(--bg-secondary);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+
+        .sidebar-header {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .search-box {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--accent-blue);
+        }
+
+        .search-box input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-box::before {
+            content: "🔍";
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.9rem;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .filter-btn {
+            flex: 1;
+            padding: 0.6rem 0.75rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover {
+            background: var(--bg-card);
+        }
+
+        .filter-btn.active {
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+            color: white;
+        }
+
+        .filter-btn.green.active { background: var(--status-green); border-color: var(--status-green); }
+        .filter-btn.yellow.active { background: var(--status-yellow); border-color: var(--status-yellow); }
+        .filter-btn.red.active { background: var(--status-red); border-color: var(--status-red); }
+
+        /* Project List */
+        .project-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0.5rem;
+        }
+
+        .project-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .project-list::-webkit-scrollbar-track {
+            background: var(--bg-tertiary);
+        }
+
+        .project-list::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 3px;
+        }
+
+        .project-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .project-item:hover {
+            border-color: var(--accent-blue);
+            transform: translateX(4px);
+        }
+
+        .project-item.active {
+            border-color: var(--accent-blue);
+            background: var(--bg-tertiary);
+        }
+
+        .project-item-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+        .status-indicator.green { background: var(--status-green); box-shadow: 0 0 8px var(--status-green); }
+        .status-indicator.yellow { background: var(--status-yellow); box-shadow: 0 0 8px var(--status-yellow); }
+        .status-indicator.red { background: var(--status-red); box-shadow: 0 0 8px var(--status-red); }
+
+        .project-item-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+
+        .project-item-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .project-item-lga {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .project-item-progress {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .progress-bar-mini {
+            width: 60px;
+            height: 4px;
+            background: var(--bg-tertiary);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-bar-mini .fill {
+            height: 100%;
+            border-radius: 2px;
+        }
+
+        /* Map Container */
+        .map-container {
+            flex: 1;
+            position: relative;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+
+        .leaflet-container {
+            background: var(--bg-primary);
+        }
+
+        /* Map Legend */
+        .map-legend {
+            position: absolute;
+            bottom: 30px;
+            left: 20px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1rem;
+            z-index: 1000;
+        }
+
+        .map-legend h4 {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .legend-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .legend-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.green { background: var(--status-green); }
+        .legend-dot.yellow { background: var(--status-yellow); }
+        .legend-dot.red { background: var(--status-red); }
+
+        /* Detail Panel */
+        .detail-panel {
+            position: fixed;
+            top: 70px;
+            right: -500px;
+            width: 500px;
+            height: calc(100vh - 70px);
+            background: var(--bg-secondary);
+            border-left: 1px solid var(--border-color);
+            z-index: 1001;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .detail-panel.open {
+            right: 0;
+        }
+
+        .detail-header {
+            padding: 1.25rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .detail-header h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .close-btn {
+            width: 36px;
+            height: 36px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .close-btn:hover {
+            background: var(--status-red);
+            border-color: var(--status-red);
+            color: white;
+        }
+
+        .detail-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.25rem;
+        }
+
+        .detail-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .detail-content::-webkit-scrollbar-track {
+            background: var(--bg-tertiary);
+        }
+
+        .detail-content::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 3px;
+        }
+
+        .detail-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-section h3 {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .status-badge.green { background: rgba(16, 185, 129, 0.2); color: var(--status-green); }
+        .status-badge.yellow { background: rgba(245, 158, 11, 0.2); color: var(--status-yellow); }
+        .status-badge.red { background: rgba(239, 68, 68, 0.2); color: var(--status-red); }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .info-item {
+            background: var(--bg-card);
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .info-item.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .info-item label {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+
+        .info-item span {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Progress Bar */
+        .progress-section {
+            background: var(--bg-card);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .progress-label {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .progress-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: var(--bg-tertiary);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-bar .fill {
+            height: 100%;
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-bar .fill.green { background: linear-gradient(90deg, var(--status-green), #34d399); }
+        .progress-bar .fill.yellow { background: linear-gradient(90deg, var(--status-yellow), #fbbf24); }
+        .progress-bar .fill.red { background: linear-gradient(90deg, var(--status-red), #f87171); }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 1rem;
+            padding-left: 1rem;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            border: 2px solid var(--bg-secondary);
+        }
+
+        .timeline-item.green::before { background: var(--status-green); }
+        .timeline-item.yellow::before { background: var(--status-yellow); }
+        .timeline-item.red::before { background: var(--status-red); }
+
+        .timeline-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-text {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Photo Gallery */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+        }
+
+        .photo-item {
+            aspect-ratio: 4/3;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            overflow: hidden;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Documents */
+        .document-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .document-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .document-item:hover {
+            border-color: var(--accent-blue);
+        }
+
+        .doc-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .doc-info {
+            flex: 1;
+        }
+
+        .doc-name {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .doc-size {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        /* Custom Marker Styles */
+        .custom-marker {
+            width: 30px;
+            height: 30px;
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+            border: 3px solid white;
+        }
+
+        .custom-marker.green { background: var(--status-green); }
+        .custom-marker.yellow { background: var(--status-yellow); }
+        .custom-marker.red { background: var(--status-red); }
+
+        .custom-marker-inner {
+            transform: rotate(45deg);
+            font-size: 12px;
+        }
+
+        /* Overlay when panel is open */
+        .map-overlay {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .map-overlay.active {
+            display: block;
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Leaflet popup customization */
+        .leaflet-popup-content-wrapper {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+        }
+
+        .leaflet-popup-content {
+            color: var(--text-primary);
+            margin: 0.75rem 1rem;
+        }
+
+        .leaflet-popup-tip {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .popup-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .popup-lga {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .popup-status {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .popup-status.green { background: rgba(16, 185, 129, 0.2); color: var(--status-green); }
+        .popup-status.yellow { background: rgba(245, 158, 11, 0.2); color: var(--status-yellow); }
+        .popup-status.red { background: rgba(239, 68, 68, 0.2); color: var(--status-red); }
+
+        a.leaflet-popup-close-button {
+            color: var(--text-secondary);
+        }
+
+        a.leaflet-popup-close-button:hover {
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">BS</div>
+            <div class="header-title">
+                <h1>Benue State Infrastructure Dashboard</h1>
+                <p>Real-time Project Monitoring & Tracking System</p>
+            </div>
+        </div>
+        <div class="header-stats">
+            <div class="stat-card">
+                <div class="value" id="total-count">0</div>
+                <div class="label">Total Projects</div>
+            </div>
+            <div class="stat-card green">
+                <div class="value" id="green-count">0</div>
+                <div class="label">On Track</div>
+            </div>
+            <div class="stat-card yellow">
+                <div class="value" id="yellow-count">0</div>
+                <div class="label">Needs Attention</div>
+            </div>
+            <div class="stat-card red">
+                <div class="value" id="red-count">0</div>
+                <div class="label">Behind Schedule</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search projects...">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn green" data-filter="green">Green</button>
+                    <button class="filter-btn yellow" data-filter="yellow">Yellow</button>
+                    <button class="filter-btn red" data-filter="red">Red</button>
+                </div>
+            </div>
+            <div class="project-list" id="project-list">
+                <!-- Projects will be dynamically inserted here -->
+            </div>
+        </aside>
+
+        <!-- Map Container -->
+        <div class="map-container">
+            <div id="map"></div>
+            <div class="map-overlay" id="map-overlay"></div>
+            <div class="map-legend">
+                <h4>Project Status</h4>
+                <div class="legend-item">
+                    <div class="legend-dot green"></div>
+                    <span>On Track</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot yellow"></div>
+                    <span>Needs Attention</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot red"></div>
+                    <span>Behind Schedule</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detail Panel -->
+    <div class="detail-panel" id="detail-panel">
+        <div class="detail-header">
+            <h2>Project Details</h2>
+            <button class="close-btn" id="close-panel">&times;</button>
+        </div>
+        <div class="detail-content" id="detail-content">
+            <!-- Detail content will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+        // ============================================
+        // MOCK DATA - Road Infrastructure Projects
+        // ============================================
+        const projects = [
+            {
+                id: 1,
+                name: "Makurdi-Gboko Highway Rehabilitation",
+                type: "Highway Rehabilitation",
+                lga: "Makurdi",
+                coords: [7.7337, 8.5212],
+                status: "green",
+                statusText: "On Track",
+                progress: 78,
+                startDate: "2024-03-15",
+                expectedCompletion: "2025-06-30",
+                contractor: "Julius Berger Nigeria PLC",
+                budget: "₦4.2 Billion",
+                spent: "₦3.1 Billion",
+                description: "Complete rehabilitation of the 45km Makurdi-Gboko highway including drainage systems, road markings, and safety barriers.",
+                updates: [
+                    { date: "2025-01-15", text: "Asphalt laying completed for 35km stretch. Final phase commencing.", status: "green" },
+                    { date: "2024-12-10", text: "Bridge reinforcement work completed ahead of schedule.", status: "green" },
+                    { date: "2024-09-20", text: "Phase 2 construction started. All materials delivered.", status: "green" },
+                    { date: "2024-03-15", text: "Project officially commenced. Site mobilization complete.", status: "green" }
+                ],
+                documents: [
+                    { name: "Contract Agreement.pdf", size: "2.4 MB" },
+                    { name: "Environmental Impact Assessment.pdf", size: "5.1 MB" },
+                    { name: "Progress Report Q4 2024.pdf", size: "1.8 MB" }
+                ]
+            },
+            {
+                id: 2,
+                name: "Otukpo Urban Road Network",
+                type: "Urban Road Construction",
+                lga: "Otukpo",
+                coords: [7.1904, 8.1300],
+                status: "yellow",
+                statusText: "Needs Attention",
+                progress: 45,
+                startDate: "2024-06-01",
+                expectedCompletion: "2025-08-31",
+                contractor: "Dantata & Sawoe Construction",
+                budget: "₦2.8 Billion",
+                spent: "₦1.4 Billion",
+                description: "Construction of 25km urban road network in Otukpo town center including street lights and pedestrian walkways.",
+                updates: [
+                    { date: "2025-01-10", text: "Minor delays due to utility relocation issues. Additional 2 weeks needed.", status: "yellow" },
+                    { date: "2024-11-25", text: "Phase 1 roads completed. Drainage installation ongoing.", status: "green" },
+                    { date: "2024-08-15", text: "Construction progressing well. 30% completion reached.", status: "green" },
+                    { date: "2024-06-01", text: "Project kickoff. Initial surveys completed.", status: "green" }
+                ],
+                documents: [
+                    { name: "Site Survey Report.pdf", size: "3.2 MB" },
+                    { name: "Contract Document.pdf", size: "1.9 MB" },
+                    { name: "Design Drawings.pdf", size: "8.5 MB" }
+                ]
+            },
+            {
+                id: 3,
+                name: "Katsina-Ala Bridge Expansion",
+                type: "Bridge Construction",
+                lga: "Katsina-Ala",
+                coords: [7.1667, 9.2833],
+                status: "red",
+                statusText: "Behind Schedule",
+                progress: 32,
+                startDate: "2024-01-10",
+                expectedCompletion: "2025-03-31",
+                contractor: "CCECC Nigeria Limited",
+                budget: "₦6.5 Billion",
+                spent: "₦2.8 Billion",
+                description: "Expansion of Katsina-Ala bridge from 2 lanes to 4 lanes with improved load capacity and pedestrian walkways.",
+                updates: [
+                    { date: "2025-01-18", text: "Project significantly delayed due to flooding. Revised timeline under review.", status: "red" },
+                    { date: "2024-10-05", text: "Work suspended due to heavy rainfall and river flooding.", status: "red" },
+                    { date: "2024-07-20", text: "Foundation work completed. Steel structure fabrication started.", status: "green" },
+                    { date: "2024-01-10", text: "Project commenced. Temporary bypass bridge installed.", status: "green" }
+                ],
+                documents: [
+                    { name: "Structural Engineering Report.pdf", size: "4.7 MB" },
+                    { name: "Flood Risk Assessment.pdf", size: "2.1 MB" },
+                    { name: "Contract Agreement.pdf", size: "2.8 MB" }
+                ]
+            },
+            {
+                id: 4,
+                name: "Gboko Township Roads Phase 2",
+                type: "Township Road Construction",
+                lga: "Gboko",
+                coords: [7.3167, 9.0000],
+                status: "green",
+                statusText: "On Track",
+                progress: 89,
+                startDate: "2024-02-20",
+                expectedCompletion: "2025-02-28",
+                contractor: "RCC Nigeria Limited",
+                budget: "₦1.9 Billion",
+                spent: "₦1.65 Billion",
+                description: "Construction of 15km internal roads in Gboko township including market access roads and school routes.",
+                updates: [
+                    { date: "2025-01-20", text: "Final finishing works in progress. Project on track for early completion.", status: "green" },
+                    { date: "2024-11-30", text: "All major construction completed. Street lighting installation started.", status: "green" },
+                    { date: "2024-08-10", text: "75% completion. Quality checks passed.", status: "green" },
+                    { date: "2024-02-20", text: "Construction commenced after community consultation.", status: "green" }
+                ],
+                documents: [
+                    { name: "Community Engagement Report.pdf", size: "1.5 MB" },
+                    { name: "Quality Assurance Certificate.pdf", size: "890 KB" },
+                    { name: "Progress Photos Dec 2024.zip", size: "45 MB" }
+                ]
+            },
+            {
+                id: 5,
+                name: "Vandeikya-Obudu Road Reconstruction",
+                type: "Road Reconstruction",
+                lga: "Vandeikya",
+                coords: [6.7833, 9.0667],
+                status: "yellow",
+                statusText: "Needs Attention",
+                progress: 56,
+                startDate: "2024-04-05",
+                expectedCompletion: "2025-10-15",
+                contractor: "Setraco Nigeria Limited",
+                budget: "₦5.1 Billion",
+                spent: "₦2.9 Billion",
+                description: "Complete reconstruction of 60km Vandeikya-Obudu road including rock blasting and mountain terrain engineering.",
+                updates: [
+                    { date: "2025-01-12", text: "Equipment breakdown causing 1-week delay. Parts being sourced.", status: "yellow" },
+                    { date: "2024-11-08", text: "Challenging terrain section completed. Progress steady.", status: "green" },
+                    { date: "2024-07-25", text: "Rock blasting phase 50% complete. Safety protocols maintained.", status: "green" },
+                    { date: "2024-04-05", text: "Project launched. Heavy machinery mobilized to site.", status: "green" }
+                ],
+                documents: [
+                    { name: "Geological Survey.pdf", size: "6.2 MB" },
+                    { name: "Safety Protocol Document.pdf", size: "1.1 MB" },
+                    { name: "Equipment List.pdf", size: "450 KB" }
+                ]
+            },
+            {
+                id: 6,
+                name: "Gwer West Rural Road Network",
+                type: "Rural Road Construction",
+                lga: "Gwer West",
+                coords: [7.5833, 8.3833],
+                status: "green",
+                statusText: "On Track",
+                progress: 67,
+                startDate: "2024-05-12",
+                expectedCompletion: "2025-07-20",
+                contractor: "AG Vision Construction Ltd",
+                budget: "₦980 Million",
+                spent: "₦620 Million",
+                description: "Construction of 30km rural access roads connecting 12 farming communities to main highways.",
+                updates: [
+                    { date: "2025-01-08", text: "8 communities now connected. Remaining 4 in progress.", status: "green" },
+                    { date: "2024-10-22", text: "Culvert installations completed. Gravel laying ongoing.", status: "green" },
+                    { date: "2024-07-18", text: "Community participation excellent. Local labor employed.", status: "green" },
+                    { date: "2024-05-12", text: "Project started with community mapping exercise.", status: "green" }
+                ],
+                documents: [
+                    { name: "Community Mapping Report.pdf", size: "2.3 MB" },
+                    { name: "Labor Employment Records.pdf", size: "780 KB" },
+                    { name: "Construction Permit.pdf", size: "340 KB" }
+                ]
+            },
+            {
+                id: 7,
+                name: "Ushongo-Lessel Highway",
+                type: "Highway Construction",
+                lga: "Ushongo",
+                coords: [7.0333, 9.1167],
+                status: "red",
+                statusText: "Behind Schedule",
+                progress: 23,
+                startDate: "2024-02-01",
+                expectedCompletion: "2025-12-31",
+                contractor: "Reynolds Construction Company",
+                budget: "₦3.7 Billion",
+                spent: "₦1.1 Billion",
+                description: "New highway construction connecting Ushongo to Lessel, 40km stretch with 2 new bridges.",
+                updates: [
+                    { date: "2025-01-14", text: "Funding delays impacting progress. Awaiting budget release.", status: "red" },
+                    { date: "2024-09-30", text: "Work slowed due to payment issues with contractor.", status: "yellow" },
+                    { date: "2024-06-15", text: "First 10km section progressing. Materials stockpiled.", status: "green" },
+                    { date: "2024-02-01", text: "Groundbreaking ceremony held. Construction began.", status: "green" }
+                ],
+                documents: [
+                    { name: "Budget Allocation Letter.pdf", size: "520 KB" },
+                    { name: "Contractor Agreement.pdf", size: "3.1 MB" },
+                    { name: "Route Survey.pdf", size: "4.8 MB" }
+                ]
+            },
+            {
+                id: 8,
+                name: "Makurdi Ring Road Phase 1",
+                type: "Ring Road Construction",
+                lga: "Makurdi",
+                coords: [7.7500, 8.4900],
+                status: "green",
+                statusText: "On Track",
+                progress: 52,
+                startDate: "2024-07-01",
+                expectedCompletion: "2026-01-31",
+                contractor: "Arab Contractors Nigeria",
+                budget: "₦8.2 Billion",
+                spent: "₦4.0 Billion",
+                description: "Construction of 25km ring road around Makurdi city to ease traffic congestion, including 3 interchanges.",
+                updates: [
+                    { date: "2025-01-19", text: "First interchange 80% complete. Second interchange foundation laid.", status: "green" },
+                    { date: "2024-11-15", text: "Major milestone: River crossing section completed.", status: "green" },
+                    { date: "2024-09-05", text: "Earthworks progressing well. 40% of route cleared.", status: "green" },
+                    { date: "2024-07-01", text: "Project flagged off by State Governor.", status: "green" }
+                ],
+                documents: [
+                    { name: "Traffic Impact Study.pdf", size: "5.6 MB" },
+                    { name: "Interchange Designs.pdf", size: "12.3 MB" },
+                    { name: "Land Acquisition Records.pdf", size: "2.1 MB" }
+                ]
+            },
+            {
+                id: 9,
+                name: "Konshisha Farm Access Roads",
+                type: "Agricultural Road Network",
+                lga: "Konshisha",
+                coords: [6.9167, 9.1333],
+                status: "yellow",
+                statusText: "Needs Attention",
+                progress: 41,
+                startDate: "2024-08-15",
+                expectedCompletion: "2025-09-30",
+                contractor: "Triacta Nigeria Limited",
+                budget: "₦1.2 Billion",
+                spent: "₦480 Million",
+                description: "Network of 35km farm access roads to improve agricultural produce transportation from remote farms.",
+                updates: [
+                    { date: "2025-01-16", text: "Weather delays in rainy sections. Drainage redesign needed.", status: "yellow" },
+                    { date: "2024-11-28", text: "15km completed. Farmers already reporting improved access.", status: "green" },
+                    { date: "2024-09-30", text: "Construction pace good. Community cooperation excellent.", status: "green" },
+                    { date: "2024-08-15", text: "Project commenced after harvest season.", status: "green" }
+                ],
+                documents: [
+                    { name: "Agricultural Impact Assessment.pdf", size: "1.8 MB" },
+                    { name: "Drainage Redesign Proposal.pdf", size: "2.4 MB" },
+                    { name: "Farmer Consultation Minutes.pdf", size: "650 KB" }
+                ]
+            },
+            {
+                id: 10,
+                name: "Otukpo-Ugbokolo Express Road",
+                type: "Express Road Construction",
+                lga: "Otukpo",
+                coords: [7.2100, 8.0800],
+                status: "green",
+                statusText: "On Track",
+                progress: 71,
+                startDate: "2024-03-01",
+                expectedCompletion: "2025-05-15",
+                contractor: "Mothercat Limited",
+                budget: "₦2.4 Billion",
+                spent: "₦1.7 Billion",
+                description: "Dual carriageway express road connecting Otukpo to Ugbokolo industrial area, 18km with service lanes.",
+                updates: [
+                    { date: "2025-01-17", text: "Service lane construction 90% done. Main carriageway nearing completion.", status: "green" },
+                    { date: "2024-12-01", text: "Median barriers installed. Road marking commenced.", status: "green" },
+                    { date: "2024-08-20", text: "Both carriageways base layer complete.", status: "green" },
+                    { date: "2024-03-01", text: "Construction started. Right of way fully cleared.", status: "green" }
+                ],
+                documents: [
+                    { name: "Dual Carriageway Specifications.pdf", size: "3.9 MB" },
+                    { name: "Industrial Zone Access Plan.pdf", size: "2.2 MB" },
+                    { name: "Monthly Progress Report.pdf", size: "1.4 MB" }
+                ]
+            }
+        ];
+
+        // ============================================
+        // APPLICATION STATE
+        // ============================================
+        let map;
+        let markers = [];
+        let currentFilter = 'all';
+        let searchQuery = '';
+        let selectedProject = null;
+
+        // ============================================
+        // INITIALIZE APPLICATION
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            initMap();
+            updateStats();
+            renderProjectList();
+            setupEventListeners();
+        });
+
+        // ============================================
+        // MAP INITIALIZATION
+        // ============================================
+        function initMap() {
+            // Center on Benue State
+            map = L.map('map', {
+                center: [7.3369, 8.7404],
+                zoom: 9,
+                zoomControl: true
+            });
+
+            // Add dark tile layer
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 20
+            }).addTo(map);
+
+            // Add markers for all projects
+            addMarkers();
+        }
+
+        function addMarkers() {
+            // Clear existing markers
+            markers.forEach(marker => map.removeLayer(marker));
+            markers = [];
+
+            const filteredProjects = getFilteredProjects();
+
+            filteredProjects.forEach(project => {
+                const markerIcon = L.divIcon({
+                    className: 'custom-marker-container',
+                    html: `<div class="custom-marker ${project.status}"><span class="custom-marker-inner">🛣️</span></div>`,
+                    iconSize: [30, 40],
+                    iconAnchor: [15, 40],
+                    popupAnchor: [0, -40]
+                });
+
+                const marker = L.marker(project.coords, { icon: markerIcon })
+                    .addTo(map)
+                    .bindPopup(`
+                        <div class="popup-title">${project.name}</div>
+                        <div class="popup-lga">📍 ${project.lga} LGA</div>
+                        <div class="popup-status ${project.status}">${project.statusText}</div>
+                    `);
+
+                marker.on('click', () => {
+                    showProjectDetail(project);
+                    highlightProjectInList(project.id);
+                });
+
+                markers.push(marker);
+            });
+        }
+
+        // ============================================
+        // STATS UPDATE
+        // ============================================
+        function updateStats() {
+            const total = projects.length;
+            const green = projects.filter(p => p.status === 'green').length;
+            const yellow = projects.filter(p => p.status === 'yellow').length;
+            const red = projects.filter(p => p.status === 'red').length;
+
+            document.getElementById('total-count').textContent = total;
+            document.getElementById('green-count').textContent = green;
+            document.getElementById('yellow-count').textContent = yellow;
+            document.getElementById('red-count').textContent = red;
+        }
+
+        // ============================================
+        // PROJECT LIST RENDERING
+        // ============================================
+        function getFilteredProjects() {
+            return projects.filter(project => {
+                const matchesFilter = currentFilter === 'all' || project.status === currentFilter;
+                const matchesSearch = project.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                     project.lga.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                     project.type.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesFilter && matchesSearch;
+            });
+        }
+
+        function renderProjectList() {
+            const listContainer = document.getElementById('project-list');
+            const filteredProjects = getFilteredProjects();
+
+            if (filteredProjects.length === 0) {
+                listContainer.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">🔍</div>
+                        <p>No projects found matching your criteria</p>
+                    </div>
+                `;
+                return;
+            }
+
+            listContainer.innerHTML = filteredProjects.map(project => `
+                <div class="project-item ${selectedProject?.id === project.id ? 'active' : ''}"
+                     data-id="${project.id}" onclick="handleProjectClick(${project.id})">
+                    <div class="project-item-header">
+                        <div class="status-indicator ${project.status}"></div>
+                        <div class="project-item-title">${project.name}</div>
+                    </div>
+                    <div class="project-item-meta">
+                        <div class="project-item-lga">
+                            <span>📍</span>
+                            <span>${project.lga} LGA</span>
+                        </div>
+                        <div class="project-item-progress">
+                            <div class="progress-bar-mini">
+                                <div class="fill" style="width: ${project.progress}%; background: var(--status-${project.status})"></div>
+                            </div>
+                            <span>${project.progress}%</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Update markers on map
+            addMarkers();
+        }
+
+        function highlightProjectInList(projectId) {
+            document.querySelectorAll('.project-item').forEach(item => {
+                item.classList.remove('active');
+                if (parseInt(item.dataset.id) === projectId) {
+                    item.classList.add('active');
+                    item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            });
+        }
+
+        // ============================================
+        // PROJECT DETAIL PANEL
+        // ============================================
+        function handleProjectClick(projectId) {
+            const project = projects.find(p => p.id === projectId);
+            if (project) {
+                showProjectDetail(project);
+                highlightProjectInList(projectId);
+
+                // Pan map to project location
+                map.panTo(project.coords);
+            }
+        }
+
+        function showProjectDetail(project) {
+            selectedProject = project;
+            const panel = document.getElementById('detail-panel');
+            const content = document.getElementById('detail-content');
+            const overlay = document.getElementById('map-overlay');
+
+            content.innerHTML = `
+                <div class="detail-section">
+                    <h3>Status</h3>
+                    <div class="status-badge ${project.status}">
+                        <div class="status-indicator ${project.status}"></div>
+                        ${project.statusText}
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Progress</h3>
+                    <div class="progress-section">
+                        <div class="progress-header">
+                            <span class="progress-label">Overall Completion</span>
+                            <span class="progress-value">${project.progress}%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="fill ${project.status}" style="width: ${project.progress}%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Project Information</h3>
+                    <div class="info-grid">
+                        <div class="info-item full-width">
+                            <label>Project Name</label>
+                            <span>${project.name}</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Project Type</label>
+                            <span>${project.type}</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Location (LGA)</label>
+                            <span>${project.lga}</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Start Date</label>
+                            <span>${formatDate(project.startDate)}</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Expected Completion</label>
+                            <span>${formatDate(project.expectedCompletion)}</span>
+                        </div>
+                        <div class="info-item full-width">
+                            <label>Contractor</label>
+                            <span>${project.contractor}</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Total Budget</label>
+                            <span>${project.budget}</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Amount Spent</label>
+                            <span>${project.spent}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Description</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.6; font-size: 0.9rem;">
+                        ${project.description}
+                    </p>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Status Updates</h3>
+                    <div class="timeline">
+                        ${project.updates.map(update => `
+                            <div class="timeline-item ${update.status}">
+                                <div class="timeline-date">${formatDate(update.date)}</div>
+                                <div class="timeline-text">${update.text}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Site Photos</h3>
+                    <div class="photo-gallery">
+                        <div class="photo-item">
+                            <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=300&h=200&fit=crop" alt="Construction site">
+                        </div>
+                        <div class="photo-item">
+                            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=300&h=200&fit=crop" alt="Road work">
+                        </div>
+                        <div class="photo-item">
+                            <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=300&h=200&fit=crop" alt="Equipment">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Documents</h3>
+                    <div class="document-list">
+                        ${project.documents.map(doc => `
+                            <div class="document-item">
+                                <div class="doc-icon">📄</div>
+                                <div class="doc-info">
+                                    <div class="doc-name">${doc.name}</div>
+                                    <div class="doc-size">${doc.size}</div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            panel.classList.add('open');
+            overlay.classList.add('active');
+        }
+
+        function closeDetailPanel() {
+            const panel = document.getElementById('detail-panel');
+            const overlay = document.getElementById('map-overlay');
+
+            panel.classList.remove('open');
+            overlay.classList.remove('active');
+            selectedProject = null;
+
+            document.querySelectorAll('.project-item').forEach(item => {
+                item.classList.remove('active');
+            });
+        }
+
+        // ============================================
+        // EVENT LISTENERS
+        // ============================================
+        function setupEventListeners() {
+            // Close panel button
+            document.getElementById('close-panel').addEventListener('click', closeDetailPanel);
+
+            // Map overlay click
+            document.getElementById('map-overlay').addEventListener('click', closeDetailPanel);
+
+            // Filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFilter = this.dataset.filter;
+                    renderProjectList();
+                });
+            });
+
+            // Search input
+            document.getElementById('search-input').addEventListener('input', function(e) {
+                searchQuery = e.target.value;
+                renderProjectList();
+            });
+
+            // Keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeDetailPanel();
+                }
+            });
+        }
+
+        // ============================================
+        // UTILITY FUNCTIONS
+        // ============================================
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
+    </script>
+</body>
+</html>
